@@ -18,6 +18,7 @@ struct YunseulApp: App {
     var body: some Scene {
         WindowGroup {
             AppView(store: YunseulApp.store)
+                .preferredColorScheme(.dark)
         }
     }
 }
