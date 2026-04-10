@@ -5,4 +5,17 @@
 //  Created by wodnd on 4/10/26.
 //
 
-import Foundation
+import ComposableArchitecture
+
+@Reducer
+struct HomeFeature {
+    
+    @ObservableState
+    struct State: Equatable {}
+    
+    enum Action {}
+    
+    var body: some ReducerOf<Self> {
+        Reduce{ state, action in .none }
+    }
+}
