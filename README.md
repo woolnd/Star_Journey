@@ -4,7 +4,7 @@
 
 당신의 생일별(Birth Star)이 지금 이 순간 지구 어디를 비추고 있을까요?  
 **윤슬**은 그 여정을 실시간으로 추적하고, 감정을 담아 기록하는 천체 여행 다이어리입니다.
-
+<img width="2040" height="1260" alt="컨셉" src="https://github.com/user-attachments/assets/414ec4e8-b9d5-46e5-9200-3ea1c8181801" />
 ---
 
 ## 📱 Core Features
