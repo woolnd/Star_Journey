@@ -6,6 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6DEBFE072F88ACC900D258B8 /* AABridge in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE062F88ACC900D258B8 /* AABridge */; };
+		6DEBFE092F88ACC900D258B8 /* AAplus in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE082F88ACC900D258B8 /* AAplus */; };
+		6DEBFE0B2F88ACC900D258B8 /* SwiftAA in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE0A2F88ACC900D258B8 /* SwiftAA */; };
+		6DEBFE0E2F88ACEE00D258B8 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE0D2F88ACEE00D258B8 /* ReactorKit */; };
+		6DEBFE112F88AD6B00D258B8 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE102F88AD6B00D258B8 /* ComposableArchitecture */; };
+		6DEBFE142F88ADB000D258B8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE132F88ADB000D258B8 /* RxCocoa */; };
+		6DEBFE162F88ADB000D258B8 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE152F88ADB000D258B8 /* RxRelay */; };
+		6DEBFE182F88ADB000D258B8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE172F88ADB000D258B8 /* RxSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		6D057F5F2F88814100D7560D /* Yunseul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yunseul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +34,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DEBFE142F88ADB000D258B8 /* RxCocoa in Frameworks */,
+				6DEBFE112F88AD6B00D258B8 /* ComposableArchitecture in Frameworks */,
+				6DEBFE162F88ADB000D258B8 /* RxRelay in Frameworks */,
+				6DEBFE0B2F88ACC900D258B8 /* SwiftAA in Frameworks */,
+				6DEBFE092F88ACC900D258B8 /* AAplus in Frameworks */,
+				6DEBFE0E2F88ACEE00D258B8 /* ReactorKit in Frameworks */,
+				6DEBFE182F88ADB000D258B8 /* RxSwift in Frameworks */,
+				6DEBFE072F88ACC900D258B8 /* AABridge in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +84,14 @@
 			);
 			name = Yunseul;
 			packageProductDependencies = (
+				6DEBFE062F88ACC900D258B8 /* AABridge */,
+				6DEBFE082F88ACC900D258B8 /* AAplus */,
+				6DEBFE0A2F88ACC900D258B8 /* SwiftAA */,
+				6DEBFE0D2F88ACEE00D258B8 /* ReactorKit */,
+				6DEBFE102F88AD6B00D258B8 /* ComposableArchitecture */,
+				6DEBFE132F88ADB000D258B8 /* RxCocoa */,
+				6DEBFE152F88ADB000D258B8 /* RxRelay */,
+				6DEBFE172F88ADB000D258B8 /* RxSwift */,
 			);
 			productName = Yunseul;
 			productReference = 6D057F5F2F88814100D7560D /* Yunseul.app */;
@@ -94,6 +121,12 @@
 			);
 			mainGroup = 6D057F562F88814100D7560D;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6DEBFE052F88ACC900D258B8 /* XCRemoteSwiftPackageReference "SwiftAA" */,
+				6DEBFE0C2F88ACEE00D258B8 /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				6DEBFE0F2F88AD6B00D258B8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				6DEBFE122F88ADB000D258B8 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6D057F602F88814100D7560D /* Products */;
 			projectDirPath = "";
@@ -186,6 +219,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -242,6 +276,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -261,6 +296,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -269,6 +305,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.woolnd.Yunseul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -293,6 +333,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +342,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.woolnd.Yunseul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -332,6 +377,86 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6DEBFE052F88ACC900D258B8 /* XCRemoteSwiftPackageReference "SwiftAA" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onekiloparsec/SwiftAA";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.1;
+			};
+		};
+		6DEBFE0C2F88ACEE00D258B8 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+		6DEBFE0F2F88AD6B00D258B8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.25.5;
+			};
+			traits = (
+			);
+		};
+		6DEBFE122F88ADB000D258B8 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6DEBFE062F88ACC900D258B8 /* AABridge */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6DEBFE052F88ACC900D258B8 /* XCRemoteSwiftPackageReference "SwiftAA" */;
+			productName = AABridge;
+		};
+		6DEBFE082F88ACC900D258B8 /* AAplus */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6DEBFE052F88ACC900D258B8 /* XCRemoteSwiftPackageReference "SwiftAA" */;
+			productName = AAplus;
+		};
+		6DEBFE0A2F88ACC900D258B8 /* SwiftAA */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6DEBFE052F88ACC900D258B8 /* XCRemoteSwiftPackageReference "SwiftAA" */;
+			productName = SwiftAA;
+		};
+		6DEBFE0D2F88ACEE00D258B8 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6DEBFE0C2F88ACEE00D258B8 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
+		6DEBFE102F88AD6B00D258B8 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6DEBFE0F2F88AD6B00D258B8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		6DEBFE132F88ADB000D258B8 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6DEBFE122F88ADB000D258B8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		6DEBFE152F88ADB000D258B8 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6DEBFE122F88ADB000D258B8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		6DEBFE172F88ADB000D258B8 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6DEBFE122F88ADB000D258B8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6D057F572F88814100D7560D /* Project object */;
 }
