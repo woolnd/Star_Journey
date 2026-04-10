@@ -13,15 +13,20 @@ struct AppView: View {
     let store: StoreOf<AppFeature>
     
     var body: some View {
-        WithPerceptionTracking {
-            if store.isOnboardingCompleted {
-                MainTabView(store: store)
-            } else {
-                OnboardingView(store: store.scope(
-                    state: \.onboarding, action: \.onboarding
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            if !viewStore.isSplashFinished {
+                SplashView(store: store.scope(
+                    state: \.splash,
+                    action: \.splash
                 ))
-            }
-        }
+            } else if !viewStore.isOnboardingCompleted {
+                OnboardingView(store: store.scope(
+                    state: \.onboarding,
+                    action: \.onboarding
+                ))
+            } else {
+                MainTabView(store: store)
+            }        }
     }
 }
 
