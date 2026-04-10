@@ -6,7 +6,8 @@
 **당신의 별은 지금, 어디를 여행하고 있을까요?**
 
 밤하늘을 올려다보지 않아도, 내가 태어난 날의 수호성이 지금 이 순간 지구 반대편 어딘가를 조용히 비추고 있습니다. 별의 여행은 그 여정을 실시간으로 추적하는 커스텀 천체 일기장입니다.
-<img width="2040" height="1290" alt="컨셉" src="https://github.com/user-attachments/assets/73e9468f-bc45-4585-a85d-bf1e28353f99" />
+<img width="2040" height="1290" alt="컨셉" src="https://github.com/user-attachments/assets/d6093f60-f455-4af1-bcb3-69854989a787" />
+
 
 ---
 
