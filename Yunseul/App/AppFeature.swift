@@ -13,7 +13,9 @@ struct AppFeature {
     
     @ObservableState
     struct State: Equatable {
+        var isSplashFinished: Bool = false
         var isOnboardingCompleted: Bool = false
+        var splash = SplashFeature.State()
         var onboarding = OnboardingFeature.State()
         var home = HomeFeature.State()
         var traces = TracesFeature.State()
@@ -28,6 +30,9 @@ struct AppFeature {
     }
     
     enum Action {
+        case splash(SplashFeature.Action)
+        case splashFinished
+        case checkOnboardingStatus
         case onboardingCompleted
         case onboarding(OnboardingFeature.Action)
         case home(HomeFeature.Action)
@@ -39,17 +44,43 @@ struct AppFeature {
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
-            case .onboardingCompleted:
+                
+            case .splash(.splashFinished):
+                return .send(.checkOnboardingStatus)
+                
+            case .checkOnboardingStatus:
+                let isCompleted = UserDefaults.standard.bool(
+                    forKey: UserDefaults.Keys.isOnboardingCompleted
+                )
+                state.isSplashFinished = true
+                state.isOnboardingCompleted = isCompleted
+                return .none
+                
+            case .splashFinished:
+                state.isSplashFinished = true
+                return .none
+                
+            case .onboarding(.onboardingCompleted):
                 state.isOnboardingCompleted = true
+                UserDefaults.standard.set(
+                    true,
+                    forKey: UserDefaults.Keys.isOnboardingCompleted
+                )
+                return .none
+                
+            case .onboardingCompleted:
                 return .none
                 
             case .tabSelected(let tab):
                 state.selectedTab = tab
                 return .none
                 
-            case .onboarding, .home, .traces, .settings:
+            case .splash, .onboarding, .home, .traces, .settings:
                 return .none
             }
+        }
+        Scope(state: \.splash, action: \.splash) {
+            SplashFeature()
         }
         Scope(state: \.onboarding, action: \.onboarding) {
             OnboardingFeature()
