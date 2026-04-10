@@ -15,13 +15,13 @@ struct AppFeature {
     struct State: Equatable {
         var isOnboardingCompleted: Bool = false
         var home = HomeFeature.State()
-        var passport = PassportFeature.State()
+        var traces = TracesFeature.State()
         var settings = SettingsFeature.State()
         var selectedTap: Tab = .home
         
         enum Tab: Equatable {
             case home
-            case passport
+            case traces
             case settings
         }
     }
@@ -29,7 +29,7 @@ struct AppFeature {
     enum Action {
         case onboardingCompleted
         case home(HomeFeature.Action)
-        case passport(PassportFeature.Action)
+        case traces(TracesFeature.Action)
         case settings(SettingsFeature.Action)
         case tabSelected(State.Tab)
     }
@@ -45,15 +45,15 @@ struct AppFeature {
                 state.selectedTap = tab
                 return .none
                 
-            case .home, .passport, .settings:
+            case .home, .traces, .settings:
                 return .none
             }
         }
         Scope(state: \.home, action: \.home) {
             HomeFeature()
         }
-        Scope(state: \.passport, action: \.passport) {
-            PassportFeature()
+        Scope(state: \.traces, action: \.traces) {
+            TracesFeature()
         }
         Scope(state: \.settings, action: \.settings) {
             SettingsFeature()

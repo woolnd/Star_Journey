@@ -22,10 +22,13 @@
 		6DEBFE342F88AFF600D258B8 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE332F88AFF600D258B8 /* OnboardingView.swift */; };
 		6DEBFE362F88AFFD00D258B8 /* HomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE352F88AFFD00D258B8 /* HomeFeature.swift */; };
 		6DEBFE382F88B00300D258B8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE372F88B00300D258B8 /* HomeView.swift */; };
-		6DEBFE3A2F88B00A00D258B8 /* PassportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE392F88B00A00D258B8 /* PassportFeature.swift */; };
-		6DEBFE3C2F88B01000D258B8 /* PassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE3B2F88B01000D258B8 /* PassportView.swift */; };
+		6DEBFE3A2F88B00A00D258B8 /* TracesFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE392F88B00A00D258B8 /* TracesFeature.swift */; };
+		6DEBFE3C2F88B01000D258B8 /* TracesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE3B2F88B01000D258B8 /* TracesView.swift */; };
 		6DEBFE3E2F88B01500D258B8 /* SettingsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE3D2F88B01500D258B8 /* SettingsFeature.swift */; };
 		6DEBFE402F88B01C00D258B8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE3F2F88B01C00D258B8 /* SettingsView.swift */; };
+		6DEBFE482F88B5A400D258B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFE462F88B5A400D258B8 /* Localizable.strings */; };
+		6DEBFE4B2F88B5AA00D258B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFE492F88B5AA00D258B8 /* Localizable.strings */; };
+		6DEBFE4E2F88B5AF00D258B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFE4C2F88B5AF00D258B8 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,10 +40,13 @@
 		6DEBFE332F88AFF600D258B8 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		6DEBFE352F88AFFD00D258B8 /* HomeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeature.swift; sourceTree = "<group>"; };
 		6DEBFE372F88B00300D258B8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		6DEBFE392F88B00A00D258B8 /* PassportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportFeature.swift; sourceTree = "<group>"; };
-		6DEBFE3B2F88B01000D258B8 /* PassportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportView.swift; sourceTree = "<group>"; };
+		6DEBFE392F88B00A00D258B8 /* TracesFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracesFeature.swift; sourceTree = "<group>"; };
+		6DEBFE3B2F88B01000D258B8 /* TracesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracesView.swift; sourceTree = "<group>"; };
 		6DEBFE3D2F88B01500D258B8 /* SettingsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFeature.swift; sourceTree = "<group>"; };
 		6DEBFE3F2F88B01C00D258B8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6DEBFE472F88B5A400D258B8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = Localizable.strings; sourceTree = "<group>"; };
+		6DEBFE4A2F88B5AA00D258B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		6DEBFE4D2F88B5AF00D258B8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +110,7 @@
 			children = (
 				6DEBFE242F88AF3000D258B8 /* Onboarding */,
 				6DEBFE252F88AF3300D258B8 /* Home */,
-				6DEBFE262F88AF3800D258B8 /* Passport */,
+				6DEBFE262F88AF3800D258B8 /* Traces */,
 				6DEBFE272F88AF3C00D258B8 /* Settings */,
 			);
 			path = Features;
@@ -123,6 +129,7 @@
 		6DEBFE232F88AF0E00D258B8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6DEBFE412F88B52000D258B8 /* Localization */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -145,13 +152,13 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		6DEBFE262F88AF3800D258B8 /* Passport */ = {
+		6DEBFE262F88AF3800D258B8 /* Traces */ = {
 			isa = PBXGroup;
 			children = (
-				6DEBFE392F88B00A00D258B8 /* PassportFeature.swift */,
-				6DEBFE3B2F88B01000D258B8 /* PassportView.swift */,
+				6DEBFE392F88B00A00D258B8 /* TracesFeature.swift */,
+				6DEBFE3B2F88B01000D258B8 /* TracesView.swift */,
 			);
-			path = Passport;
+			path = Traces;
 			sourceTree = "<group>";
 		};
 		6DEBFE272F88AF3C00D258B8 /* Settings */ = {
@@ -182,6 +189,40 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6DEBFE412F88B52000D258B8 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				6DEBFE422F88B55F00D258B8 /* ko.lproj */,
+				6DEBFE452F88B58A00D258B8 /* en.lproj */,
+				6DEBFE442F88B57300D258B8 /* ja.lproj */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		6DEBFE422F88B55F00D258B8 /* ko.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				6DEBFE462F88B5A400D258B8 /* Localizable.strings */,
+			);
+			path = ko.lproj;
+			sourceTree = "<group>";
+		};
+		6DEBFE442F88B57300D258B8 /* ja.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				6DEBFE4C2F88B5AF00D258B8 /* Localizable.strings */,
+			);
+			path = ja.lproj;
+			sourceTree = "<group>";
+		};
+		6DEBFE452F88B58A00D258B8 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				6DEBFE492F88B5AA00D258B8 /* Localizable.strings */,
+			);
+			path = en.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,11 +271,13 @@
 				};
 			};
 			buildConfigurationList = 6D057F5A2F88814100D7560D /* Build configuration list for PBXProject "Yunseul" */;
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
+				ja,
 			);
 			mainGroup = 6D057F562F88814100D7560D;
 			minimizedProjectReferenceProxies = 1;
@@ -260,6 +303,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DEBFE1F2F88AEDC00D258B8 /* Assets.xcassets in Resources */,
+				6DEBFE4E2F88B5AF00D258B8 /* Localizable.strings in Resources */,
+				6DEBFE4B2F88B5AA00D258B8 /* Localizable.strings in Resources */,
+				6DEBFE482F88B5A400D258B8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,10 +317,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DEBFE322F88AFEE00D258B8 /* OnboardingFeature.swift in Sources */,
-				6DEBFE3A2F88B00A00D258B8 /* PassportFeature.swift in Sources */,
+				6DEBFE3A2F88B00A00D258B8 /* TracesFeature.swift in Sources */,
 				6DEBFE362F88AFFD00D258B8 /* HomeFeature.swift in Sources */,
 				6DEBFE342F88AFF600D258B8 /* OnboardingView.swift in Sources */,
-				6DEBFE3C2F88B01000D258B8 /* PassportView.swift in Sources */,
+				6DEBFE3C2F88B01000D258B8 /* TracesView.swift in Sources */,
 				6DEBFE402F88B01C00D258B8 /* SettingsView.swift in Sources */,
 				6DEBFE382F88B00300D258B8 /* HomeView.swift in Sources */,
 				6DEBFE3E2F88B01500D258B8 /* SettingsFeature.swift in Sources */,
@@ -284,6 +330,33 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6DEBFE462F88B5A400D258B8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6DEBFE472F88B5A400D258B8 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		6DEBFE492F88B5AA00D258B8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6DEBFE4A2F88B5AA00D258B8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		6DEBFE4C2F88B5AF00D258B8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6DEBFE4D2F88B5AF00D258B8 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6D057F682F88814300D7560D /* Debug */ = {

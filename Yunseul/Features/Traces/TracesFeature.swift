@@ -8,7 +8,7 @@
 import ComposableArchitecture
 
 @Reducer
-struct PassportFeature {
+struct TracesFeature {
     
     @ObservableState
     struct State: Equatable {}
