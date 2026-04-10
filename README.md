@@ -1,4 +1,4 @@
-# 🌠 윤슬 (Yunseul) — Your Star's Journey
+# 🌠 윤슬 (Yunseul)
 
 > *별은 언제나 우리를 본다. 우리가 볼 수 없을 뿐.*
 
