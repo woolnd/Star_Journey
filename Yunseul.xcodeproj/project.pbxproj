@@ -15,19 +15,17 @@
 		6DEBFE142F88ADB000D258B8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE132F88ADB000D258B8 /* RxCocoa */; };
 		6DEBFE162F88ADB000D258B8 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE152F88ADB000D258B8 /* RxRelay */; };
 		6DEBFE182F88ADB000D258B8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6DEBFE172F88ADB000D258B8 /* RxSwift */; };
+		6DEBFE1D2F88AEDC00D258B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE1A2F88AEDC00D258B8 /* ContentView.swift */; };
+		6DEBFE1E2F88AEDC00D258B8 /* YunseulApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE1B2F88AEDC00D258B8 /* YunseulApp.swift */; };
+		6DEBFE1F2F88AEDC00D258B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFE192F88AEDC00D258B8 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6D057F5F2F88814100D7560D /* Yunseul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yunseul.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DEBFE192F88AEDC00D258B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6DEBFE1A2F88AEDC00D258B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6DEBFE1B2F88AEDC00D258B8 /* YunseulApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YunseulApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		6D057F612F88814100D7560D /* Yunseul */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Yunseul;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6D057F5C2F88814100D7560D /* Frameworks */ = {
@@ -51,7 +49,7 @@
 		6D057F562F88814100D7560D = {
 			isa = PBXGroup;
 			children = (
-				6D057F612F88814100D7560D /* Yunseul */,
+				6DEBFE1C2F88AEDC00D258B8 /* Yunseul */,
 				6D057F602F88814100D7560D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +60,104 @@
 				6D057F5F2F88814100D7560D /* Yunseul.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6DEBFE1C2F88AEDC00D258B8 /* Yunseul */ = {
+			isa = PBXGroup;
+			children = (
+				6DEBFE202F88AEE100D258B8 /* App */,
+				6DEBFE212F88AEF700D258B8 /* Features */,
+				6DEBFE222F88AF0400D258B8 /* Core */,
+				6DEBFE232F88AF0E00D258B8 /* Resources */,
+				6DEBFE192F88AEDC00D258B8 /* Assets.xcassets */,
+			);
+			path = Yunseul;
+			sourceTree = "<group>";
+		};
+		6DEBFE202F88AEE100D258B8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6DEBFE1B2F88AEDC00D258B8 /* YunseulApp.swift */,
+				6DEBFE1A2F88AEDC00D258B8 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6DEBFE212F88AEF700D258B8 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				6DEBFE242F88AF3000D258B8 /* Onboarding */,
+				6DEBFE252F88AF3300D258B8 /* Home */,
+				6DEBFE262F88AF3800D258B8 /* Passport */,
+				6DEBFE272F88AF3C00D258B8 /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		6DEBFE222F88AF0400D258B8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				6DEBFE2A2F88AF5700D258B8 /* Models */,
+				6DEBFE292F88AF5300D258B8 /* Services */,
+				6DEBFE282F88AF4E00D258B8 /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		6DEBFE232F88AF0E00D258B8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6DEBFE242F88AF3000D258B8 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		6DEBFE252F88AF3300D258B8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6DEBFE262F88AF3800D258B8 /* Passport */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Passport;
+			sourceTree = "<group>";
+		};
+		6DEBFE272F88AF3C00D258B8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		6DEBFE282F88AF4E00D258B8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6DEBFE292F88AF5300D258B8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6DEBFE2A2F88AF5700D258B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,9 +174,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				6D057F612F88814100D7560D /* Yunseul */,
 			);
 			name = Yunseul;
 			packageProductDependencies = (
@@ -142,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DEBFE1F2F88AEDC00D258B8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +246,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DEBFE1D2F88AEDC00D258B8 /* ContentView.swift in Sources */,
+				6DEBFE1E2F88AEDC00D258B8 /* YunseulApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
