@@ -23,10 +23,6 @@ struct SplashView: View {
             Color.Yunseul.background
                 .ignoresSafeArea()
             
-            // 별 파티클
-            StarParticleView()
-                .opacity(starOpacity)
-            
             VStack(spacing: 0) {
                 
                 Spacer()
@@ -97,39 +93,6 @@ struct SplashView: View {
         }
         withAnimation(.easeIn(duration: 1.0).delay(1.4)) {
             taglineOpacity = 1
-        }
-    }
-}
-
-// 별 파티클
-struct StarParticleView: View {
-    
-    let stars: [(x: CGFloat, y: CGFloat, size: CGFloat, duration: Double)] = (0..<40).map { _ in
-        (
-            x: CGFloat.random(in: 0...1),
-            y: CGFloat.random(in: 0...1),
-            size: CGFloat.random(in: 1...2.5),
-            duration: Double.random(in: 2...5)
-        )
-    }
-    
-    var body: some View {
-        GeometryReader { geo in
-            ForEach(0..<stars.count, id: \.self) { i in
-                Circle()
-                    .fill(Color(hex: "C2D3F5"))
-                    .frame(width: stars[i].size, height: stars[i].size)
-                    .position(
-                        x: stars[i].x * geo.size.width,
-                        y: stars[i].y * geo.size.height
-                    )
-                    .opacity(Double.random(in: 0.2...0.8))
-                    .animation(
-                        .easeInOut(duration: stars[i].duration)
-                        .repeatForever(autoreverses: true),
-                        value: stars[i].duration
-                    )
-            }
         }
     }
 }

@@ -3,4 +3,182 @@
    uuid = "B485068F-70DD-492A-9C51-F96EA1997ACE"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E58B9421-3013-4394-B860-8E3CC694BA1D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yunseul/Features/Home/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "HomeViewDisposeBag"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E58B9421-3013-4394-B860-8E3CC694BA1D - 4c38561d104f5e7b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yunseul.HomeViewDisposeBag.deinit"
+                  moduleName = "Yunseul.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wodnd/Desktop/Project/Yunseul/Yunseul/Yunseul/Features/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13">
+               </Location>
+               <Location
+                  uuid = "E58B9421-3013-4394-B860-8E3CC694BA1D - 88c0205788cbcd63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yunseul.HomeViewDisposeBag.__isolated_deallocating_deinit"
+                  moduleName = "Yunseul.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wodnd/Desktop/Project/Yunseul/Yunseul/Yunseul/Features/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13">
+               </Location>
+               <Location
+                  uuid = "E58B9421-3013-4394-B860-8E3CC694BA1D - 8510335e354ad6a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yunseul.HomeViewDisposeBag.__deallocating_deinit"
+                  moduleName = "Yunseul.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wodnd/Desktop/Project/Yunseul/Yunseul/Yunseul/Features/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13">
+               </Location>
+               <Location
+                  uuid = "E58B9421-3013-4394-B860-8E3CC694BA1D - fa20278c623e4a12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yunseul.HomeViewDisposeBag.__allocating_init() -&gt; Yunseul.HomeViewDisposeBag"
+                  moduleName = "Yunseul.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wodnd/Desktop/Project/Yunseul/Yunseul/Yunseul/Features/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13">
+               </Location>
+               <Location
+                  uuid = "E58B9421-3013-4394-B860-8E3CC694BA1D - 23a29054c88271eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yunseul.HomeViewDisposeBag.init() -&gt; Yunseul.HomeViewDisposeBag"
+                  moduleName = "Yunseul.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wodnd/Desktop/Project/Yunseul/Yunseul/Yunseul/Features/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC19D521-8254-4C40-BA10-03E98ED0E3F2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yunseul/Features/Home/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "HomeViewDisposeBag"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "EC19D521-8254-4C40-BA10-03E98ED0E3F2 - 4c38561d104f5e7b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yunseul.HomeViewDisposeBag.deinit"
+                  moduleName = "Yunseul.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wodnd/Desktop/Project/Yunseul/Yunseul/Yunseul/Features/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13">
+               </Location>
+               <Location
+                  uuid = "EC19D521-8254-4C40-BA10-03E98ED0E3F2 - 88c0205788cbcd63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yunseul.HomeViewDisposeBag.__isolated_deallocating_deinit"
+                  moduleName = "Yunseul.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wodnd/Desktop/Project/Yunseul/Yunseul/Yunseul/Features/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13">
+               </Location>
+               <Location
+                  uuid = "EC19D521-8254-4C40-BA10-03E98ED0E3F2 - 8510335e354ad6a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yunseul.HomeViewDisposeBag.__deallocating_deinit"
+                  moduleName = "Yunseul.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wodnd/Desktop/Project/Yunseul/Yunseul/Yunseul/Features/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13">
+               </Location>
+               <Location
+                  uuid = "EC19D521-8254-4C40-BA10-03E98ED0E3F2 - fa20278c623e4a12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yunseul.HomeViewDisposeBag.__allocating_init() -&gt; Yunseul.HomeViewDisposeBag"
+                  moduleName = "Yunseul.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wodnd/Desktop/Project/Yunseul/Yunseul/Yunseul/Features/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13">
+               </Location>
+               <Location
+                  uuid = "EC19D521-8254-4C40-BA10-03E98ED0E3F2 - 23a29054c88271eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yunseul.HomeViewDisposeBag.init() -&gt; Yunseul.HomeViewDisposeBag"
+                  moduleName = "Yunseul.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wodnd/Desktop/Project/Yunseul/Yunseul/Yunseul/Features/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
