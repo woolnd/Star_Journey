@@ -40,6 +40,9 @@
 		6DEBFE912F88CEF600D258B8 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE902F88CEF600D258B8 /* CoreDataService.swift */; };
 		6DEBFE932F88D87400D258B8 /* Font+Yunseul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE922F88D87400D258B8 /* Font+Yunseul.swift */; };
 		6DEBFE952F89004300D258B8 /* ConstellationShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE942F89004300D258B8 /* ConstellationShapeView.swift */; };
+		6DEBFE972F8A7E8200D258B8 /* AstronomyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE962F8A7E8200D258B8 /* AstronomyService.swift */; };
+		6DEBFE992F8A827000D258B8 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE982F8A827000D258B8 /* LocationService.swift */; };
+		6DEBFE9B2F8A89AF00D258B8 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE9A2F8A89AF00D258B8 /* MotionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +72,9 @@
 		6DEBFE902F88CEF600D258B8 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		6DEBFE922F88D87400D258B8 /* Font+Yunseul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Yunseul.swift"; sourceTree = "<group>"; };
 		6DEBFE942F89004300D258B8 /* ConstellationShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstellationShapeView.swift; sourceTree = "<group>"; };
+		6DEBFE962F8A7E8200D258B8 /* AstronomyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyService.swift; sourceTree = "<group>"; };
+		6DEBFE982F8A827000D258B8 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		6DEBFE9A2F8A89AF00D258B8 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +216,9 @@
 			isa = PBXGroup;
 			children = (
 				6DEBFE902F88CEF600D258B8 /* CoreDataService.swift */,
+				6DEBFE962F8A7E8200D258B8 /* AstronomyService.swift */,
+				6DEBFE982F8A827000D258B8 /* LocationService.swift */,
+				6DEBFE9A2F8A89AF00D258B8 /* MotionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -360,7 +369,10 @@
 				6DEBFE8C2F88CC9200D258B8 /* Constellation.swift in Sources */,
 				6DEBFE8A2F88CA1200D258B8 /* UserDefaults+Keys.swift in Sources */,
 				6DEBFE322F88AFEE00D258B8 /* OnboardingFeature.swift in Sources */,
+				6DEBFE992F8A827000D258B8 /* LocationService.swift in Sources */,
 				6DEBFE8F2F88CEA900D258B8 /* Yunseul.xcdatamodeld in Sources */,
+				6DEBFE9B2F8A89AF00D258B8 /* MotionService.swift in Sources */,
+				6DEBFE972F8A7E8200D258B8 /* AstronomyService.swift in Sources */,
 				6DEBFE3A2F88B00A00D258B8 /* TracesFeature.swift in Sources */,
 				6DEBFE952F89004300D258B8 /* ConstellationShapeView.swift in Sources */,
 				6DEBFE362F88AFFD00D258B8 /* HomeFeature.swift in Sources */,
@@ -546,6 +558,7 @@
 				DEVELOPMENT_TEAM = 23SCTLK482;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "별이 지금 어디를 비추고 있는지 알려드리기 위해 위치 정보가 필요해요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -583,6 +596,7 @@
 				DEVELOPMENT_TEAM = 23SCTLK482;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "별이 지금 어디를 비추고 있는지 알려드리기 위해 위치 정보가 필요해요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
