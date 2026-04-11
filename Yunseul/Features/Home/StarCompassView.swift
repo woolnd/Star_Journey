@@ -23,19 +23,33 @@ final class CameraManager: NSObject, ObservableObject {
         setupCamera()
     }
     
+    // CameraManager setupCamera 수정
     private func setupCamera() {
-        guard let device = AVCaptureDevice.default(
-            .builtInWideAngleCamera,
-            for: .video,
-            position: .back
-        ),
-        let input = try? AVCaptureDeviceInput(device: device) else { return }
-        
-        session.addInput(input)
-        session.addOutput(photoOutput)
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.session.startRunning()
+        // 카메라 권한 확인 후 앨범 권한 순차 요청
+        AVCaptureDevice.requestAccess(for: .video) { granted in
+            guard granted else { return }
+            
+            // 카메라 권한 허용 후 앨범 권한 요청
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                PHPhotoLibrary.requestAuthorization(for: .addOnly) { status in
+                    print("[앨범] 권한 상태: \(status.rawValue)")
+                }
+            }
+            
+            // 카메라 세팅
+            guard let device = AVCaptureDevice.default(
+                .builtInWideAngleCamera,
+                for: .video,
+                position: .back
+            ),
+            let input = try? AVCaptureDeviceInput(device: device) else { return }
+            
+            self.session.addInput(input)
+            self.session.addOutput(self.photoOutput)
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.session.startRunning()
+            }
         }
     }
     

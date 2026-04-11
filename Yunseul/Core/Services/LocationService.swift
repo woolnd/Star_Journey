@@ -56,6 +56,38 @@ final class LocationService: NSObject {
     func stop() {
         manager.stopUpdatingLocation()
     }
+
+    // 권한 결정까지 대기하는 함수 추가
+    func requestAuthorizationAndWait() async {
+        let current = manager.authorizationStatus
+        guard current == .notDetermined else {
+            // 이미 결정된 상태면 바로 시작
+            if current == .authorizedWhenInUse || current == .authorizedAlways {
+                manager.startUpdatingLocation()
+            }
+            return
+        }
+        
+        return await withCheckedContinuation { continuation in
+            manager.requestWhenInUseAuthorization()
+            
+            // 권한 상태 변경 감지
+            _ = authorizationSubject
+                .filter { $0 != .notDetermined }
+                .take(1)
+                .subscribe(onNext: { status in
+                    if status == .authorizedWhenInUse || status == .authorizedAlways {
+                        self.manager.startUpdatingLocation()
+                    }
+                    continuation.resume()
+                })
+        }
+    }
+
+    // ✅ 별도 시작 함수
+    func startUpdatingLocation() {
+        manager.startUpdatingLocation()
+    }
 }
 
 // MARK: - CLLocationManagerDelegate/

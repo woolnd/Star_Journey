@@ -100,8 +100,24 @@ struct HomeFeature {
                     state.nickname = birthStar.nickname ?? ""
                 }
                 
+                let constellation = state.constellation
+                let nickname = state.nickname
+                
                 return .merge(
-                    .run { _ in locationService.requestPermissionAndStart() },
+                    .run { _ in
+                        // ① 위치 권한 - 사용자가 선택할 때까지 대기
+                        await locationService.requestAuthorizationAndWait()
+                        locationService.startUpdatingLocation()
+                        
+                        // ② 위치 권한 처리 완료 후 알림 권한
+                        let granted = await NotificationService.shared.requestAuthorization()
+                        if granted {
+                            NotificationService.shared.scheduleDailyStarNotification(
+                                constellation: constellation,
+                                nickname: nickname
+                            )
+                        }
+                    },
                     .run { _ in motionService.start() },
                     .send(.calculateStarPosition),
                     .run { send in
@@ -179,10 +195,23 @@ struct HomeFeature {
                 state.starAltitude        = altitude
                 state.starAzimuth         = azimuth
                 state.briefingText        = briefing
-                state.cachedRegionName       = regionName  
-                state.lastGeocodedLatitude   = subPoint.latitude
-                state.lastGeocodedLongitude  = subPoint.longitude
-                return .none
+                state.cachedRegionName    = regionName
+                state.lastGeocodedLatitude  = subPoint.latitude
+                state.lastGeocodedLongitude = subPoint.longitude
+                
+                let constellation = state.constellation
+                let nickname      = state.nickname
+                let lat           = subPoint.latitude
+                let lon           = subPoint.longitude
+                
+                return .run { _ in
+                    NotificationService.shared.scheduleKoreaProximityNotification(
+                        constellation: constellation,
+                        nickname: nickname,
+                        subStellarLatitude: lat,
+                        subStellarLongitude: lon
+                    )
+                }
                 
             // MARK: - 센서 업데이트
             case let .sensorUpdated(azimuth, altitude):

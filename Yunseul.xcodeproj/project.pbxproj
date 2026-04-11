@@ -48,6 +48,7 @@
 		6DEBFEA42F8AAA0100D258B8 /* StarCompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */; };
 		6DEBFEA82F8ADF8600D258B8 /* StarStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA72F8ADF8600D258B8 /* StarStoryView.swift */; };
 		6DEBFEAA2F8AE2E500D258B8 /* StarRelationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA92F8AE2E500D258B8 /* StarRelationView.swift */; };
+		6DEBFEAC2F8AE3D900D258B8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEAB2F8AE3D900D258B8 /* NotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCompassView.swift; sourceTree = "<group>"; };
 		6DEBFEA72F8ADF8600D258B8 /* StarStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarStoryView.swift; sourceTree = "<group>"; };
 		6DEBFEA92F8AE2E500D258B8 /* StarRelationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRelationView.swift; sourceTree = "<group>"; };
+		6DEBFEAB2F8AE3D900D258B8 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 				6DEBFE962F8A7E8200D258B8 /* AstronomyService.swift */,
 				6DEBFE982F8A827000D258B8 /* LocationService.swift */,
 				6DEBFE9A2F8A89AF00D258B8 /* MotionService.swift */,
+				6DEBFEAB2F8AE3D900D258B8 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				6DEBFE522F88BA7500D258B8 /* MainTabView.swift in Sources */,
 				6DEBFEA12F8A91C000D258B8 /* StarSubPoint.swift in Sources */,
 				6DEBFE842F88C44800D258B8 /* SplashFeature.swift in Sources */,
+				6DEBFEAC2F8AE3D900D258B8 /* NotificationService.swift in Sources */,
 				6DEBFE862F88C45100D258B8 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
