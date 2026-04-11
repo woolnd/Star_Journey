@@ -92,6 +92,10 @@ struct HomeView: View {
                 buttonSection(viewStore: viewStore)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 32)
+                
+                starStorySection(viewStore: viewStore)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 32)
             }
         }
     }
@@ -260,6 +264,82 @@ struct HomeView: View {
                 )
             }
         }
+    }
+    
+    // MARK: - 별 이야기 섹션
+    private func starStorySection(viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>) -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            
+            // 섹션 헤더
+            HStack {
+                Text("나의 별 이야기")
+                    .font(.Yunseul.caption)
+                    .foregroundColor(Color.Yunseul.textTertiary)
+                    .tracking(2)
+                
+                Spacer()
+                
+                // 별자리 이미지
+                Image(viewStore.constellation.imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 28, height: 28)
+                    .opacity(0.7)
+            }
+            
+            // 스토리 페이지들
+            TabView {
+                ForEach(Array(viewStore.constellation.storyPages.enumerated()), id: \.offset) { index, page in
+                    storyPageCard(page: page, index: index, total: viewStore.constellation.storyPages.count)
+                }
+            }
+            .tabViewStyle(.page(indexDisplayMode: .automatic))
+            .frame(height: 400)
+        }
+    }
+    
+    // MARK: - 스토리 페이지 카드
+    private func storyPageCard(page: StoryPage, index: Int, total: Int) -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            
+            // 장 제목
+            HStack(spacing: 8) {
+                Rectangle()
+                    .fill(Color.Yunseul.starBlue.opacity(0.6))
+                    .frame(width: 2, height: 14)
+                
+                Text(page.title)
+                    .font(.custom("Georgia", size: 12))
+                    .foregroundColor(Color.Yunseul.starBlue)
+                    .tracking(2)
+                
+                Spacer()
+                
+                Text("\(index + 1) / \(total)")
+                    .font(.system(size: 10, design: .monospaced))
+                    .foregroundColor(Color.Yunseul.textTertiary)
+            }
+            
+            // 본문
+            Text(page.content)
+                .font(.custom("Georgia-Italic", size: 15))
+                .foregroundColor(Color.Yunseul.textPrimary)
+                .lineSpacing(8)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
+            
+            Spacer()
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .background(Color.Yunseul.surface)
+        .cornerRadius(20)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.Yunseul.border.opacity(0.3), lineWidth: 0.5)
+        )
+        .padding(.horizontal, 4)
+        .padding(.vertical, 8)
     }
     
     // MARK: - RxSwift → TCA 브릿지
