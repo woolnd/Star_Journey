@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftAA
+import CoreLocation
 
 final class AstronomyService {
     
@@ -20,13 +21,16 @@ final class AstronomyService {
     ) -> StarSubPoint {
         let jd = JulianDay(date)
         let equatorial = makeEquatorialCoordinates(for: constellation, julianDay: jd)
-        
-        // SwiftAA 그리니치 항성시 사용
         let gst = jd.meanGreenwichSiderealTime()
         
-        var longitude = (gst.value - equatorial.rightAscension.value) * 15.0
-        longitude = normalizeAngle(longitude)
-        if longitude > 180 { longitude -= 360 }
+        let raDeg = equatorial.rightAscension.value * 15.0  // Hour → Degree
+        
+        var longitude = gst.value * 15.0 - raDeg  // GST(도) - RA(도)
+        
+        // 정규화 -180 ~ 180
+        longitude = longitude.truncatingRemainder(dividingBy: 360)
+        if longitude > 180  { longitude -= 360 }
+        if longitude < -180 { longitude += 360 }
         
         return StarSubPoint(
             latitude: equatorial.declination.value,
@@ -93,12 +97,36 @@ final class AstronomyService {
         if result < 0 { result += 360.0 }
         return result
     }
-}
-
-// MARK: - Models
-struct StarSubPoint {
-    let latitude: Double
-    let longitude: Double
+    
+    // MARK: - 역지오코딩 (성하점 → 지역명)
+    func regionName(latitude: Double, longitude: Double) async -> String {
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        let geocoder = CLGeocoder()
+        let locale = Locale(identifier: "ko_KR")
+        
+        do {
+            let placemarks = try await geocoder.reverseGeocodeLocation(location, preferredLocale: locale)
+            guard let placemark = placemarks.first else { return "알 수 없는 곳" }
+            
+            // 나라명 → 행정구역 순서로 반환
+            if let country = placemark.country {
+                // 바다일 경우 ocean 또는 administrativeArea 활용
+                if let ocean = placemark.ocean {
+                    return ocean  // "Pacific Ocean" 등
+                }
+                return country  // "대한민국", "United States" 등
+            }
+            
+            if let ocean = placemark.ocean {
+                return ocean
+            }
+            
+            return placemark.administrativeArea ?? "알 수 없는 곳"
+            
+        } catch {
+            return "알 수 없는 곳"
+        }
+    }
 }
 
 // MARK: - Double Extension

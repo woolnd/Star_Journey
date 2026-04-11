@@ -43,6 +43,9 @@
 		6DEBFE972F8A7E8200D258B8 /* AstronomyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE962F8A7E8200D258B8 /* AstronomyService.swift */; };
 		6DEBFE992F8A827000D258B8 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE982F8A827000D258B8 /* LocationService.swift */; };
 		6DEBFE9B2F8A89AF00D258B8 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE9A2F8A89AF00D258B8 /* MotionService.swift */; };
+		6DEBFE9F2F8A918B00D258B8 /* SensorComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE9E2F8A918B00D258B8 /* SensorComparison.swift */; };
+		6DEBFEA12F8A91C000D258B8 /* StarSubPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA02F8A91C000D258B8 /* StarSubPoint.swift */; };
+		6DEBFEA42F8AAA0100D258B8 /* StarCompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +78,10 @@
 		6DEBFE962F8A7E8200D258B8 /* AstronomyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyService.swift; sourceTree = "<group>"; };
 		6DEBFE982F8A827000D258B8 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		6DEBFE9A2F8A89AF00D258B8 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
+		6DEBFE9E2F8A918B00D258B8 /* SensorComparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorComparison.swift; sourceTree = "<group>"; };
+		6DEBFEA02F8A91C000D258B8 /* StarSubPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSubPoint.swift; sourceTree = "<group>"; };
+		6DEBFEA22F8AA7B200D258B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCompassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +122,7 @@
 		6DEBFE1C2F88AEDC00D258B8 /* Yunseul */ = {
 			isa = PBXGroup;
 			children = (
+				6DEBFEA22F8AA7B200D258B8 /* Info.plist */,
 				6DEBFE202F88AEE100D258B8 /* App */,
 				6DEBFE212F88AEF700D258B8 /* Features */,
 				6DEBFE222F88AF0400D258B8 /* Core */,
@@ -180,6 +188,7 @@
 			children = (
 				6DEBFE352F88AFFD00D258B8 /* HomeFeature.swift */,
 				6DEBFE372F88B00300D258B8 /* HomeView.swift */,
+				6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -228,6 +237,8 @@
 			children = (
 				6DEBFE8B2F88CC9200D258B8 /* Constellation.swift */,
 				6DEBFE942F89004300D258B8 /* ConstellationShapeView.swift */,
+				6DEBFE9E2F8A918B00D258B8 /* SensorComparison.swift */,
+				6DEBFEA02F8A91C000D258B8 /* StarSubPoint.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -369,6 +380,7 @@
 				6DEBFE8C2F88CC9200D258B8 /* Constellation.swift in Sources */,
 				6DEBFE8A2F88CA1200D258B8 /* UserDefaults+Keys.swift in Sources */,
 				6DEBFE322F88AFEE00D258B8 /* OnboardingFeature.swift in Sources */,
+				6DEBFEA42F8AAA0100D258B8 /* StarCompassView.swift in Sources */,
 				6DEBFE992F8A827000D258B8 /* LocationService.swift in Sources */,
 				6DEBFE8F2F88CEA900D258B8 /* Yunseul.xcdatamodeld in Sources */,
 				6DEBFE9B2F8A89AF00D258B8 /* MotionService.swift in Sources */,
@@ -380,6 +392,7 @@
 				6DEBFE502F88B71200D258B8 /* AppView.swift in Sources */,
 				6DEBFE882F88C6A800D258B8 /* Color+Hex.swift in Sources */,
 				6DEBFE3C2F88B01000D258B8 /* TracesView.swift in Sources */,
+				6DEBFE9F2F8A918B00D258B8 /* SensorComparison.swift in Sources */,
 				6DEBFE402F88B01C00D258B8 /* SettingsView.swift in Sources */,
 				6DEBFE382F88B00300D258B8 /* HomeView.swift in Sources */,
 				6DEBFE932F88D87400D258B8 /* Font+Yunseul.swift in Sources */,
@@ -388,6 +401,7 @@
 				6DEBFE302F88AFE000D258B8 /* AppFeature.swift in Sources */,
 				6DEBFE1E2F88AEDC00D258B8 /* YunseulApp.swift in Sources */,
 				6DEBFE522F88BA7500D258B8 /* MainTabView.swift in Sources */,
+				6DEBFEA12F8A91C000D258B8 /* StarSubPoint.swift in Sources */,
 				6DEBFE842F88C44800D258B8 /* SplashFeature.swift in Sources */,
 				6DEBFE862F88C45100D258B8 /* SplashView.swift in Sources */,
 			);
@@ -558,7 +572,9 @@
 				DEVELOPMENT_TEAM = 23SCTLK482;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Yunseul/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "별이 지금 어디를 비추고 있는지 알려드리기 위해 위치 정보가 필요해요.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "하늘에서 별의 방향을 찾기 위해 모션 센서가 필요해요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -596,7 +612,9 @@
 				DEVELOPMENT_TEAM = 23SCTLK482;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Yunseul/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "별이 지금 어디를 비추고 있는지 알려드리기 위해 위치 정보가 필요해요.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "하늘에서 별의 방향을 찾기 위해 모션 센서가 필요해요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

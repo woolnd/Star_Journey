@@ -23,7 +23,7 @@ final class LocationService: NSObject {
     // MARK: - 현재 위치 스트림
     private let locationSubject = PublishSubject<CLLocation>()
     var location: Observable<CLLocation> {
-        return locationSubject.asObserver()
+        return locationSubject.asObservable()
     }
     
     // MARK: - 권한 상태 스트림
@@ -32,7 +32,7 @@ final class LocationService: NSObject {
     )
     
     var authorizationStatus: Observable<CLAuthorizationStatus> {
-        return authorizationSubject.asObserver()
+        return authorizationSubject.asObservable()
     }
     
     // MARK: - 위도/경도만 추출한 스트림
@@ -87,6 +87,6 @@ extension LocationService: CLLocationManagerDelegate {
         _ manager: CLLocationManager,
         didFailWithError error: Error
     ) {
-        locationSubject.onError(error)
+        print("Location error: \(error.localizedDescription)")
     }
 }

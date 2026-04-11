@@ -19,10 +19,6 @@ struct OnboardingView: View {
                 Color.Yunseul.background
                     .ignoresSafeArea()
                 
-                // 별 파티클
-                StarParticleView()
-                    .opacity(0.6)
-                
                 // 성운 블롭
                 NebulaView()
                 
