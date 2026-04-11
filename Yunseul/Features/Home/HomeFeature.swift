@@ -48,6 +48,10 @@ struct HomeFeature {
         var azimuthDiff: Double = 0
         var altitudeDiff: Double = 0
         var isStarAligned: Bool = false
+        
+        var cachedRegionName: String = ""
+        var lastGeocodedLatitude: Double = 0
+        var lastGeocodedLongitude: Double = 0
     }
     
     enum Action: Equatable {
@@ -65,8 +69,10 @@ struct HomeFeature {
             subPoint: StarSubPointEquatable,
             altitude: Double,
             azimuth: Double,
-            briefing: String
+            briefing: String,
+            regionName: String
         )
+
         
         // MARK: - 센서
         case sensorUpdated(azimuth: Double, altitude: Double)
@@ -128,20 +134,29 @@ struct HomeFeature {
                 let userLongitude = state.userLongitude == 0 ? 126.9780 : state.userLongitude
                 let nickname      = state.nickname
                 
+                let cachedRegion   = state.cachedRegionName
+                let lastLat        = state.lastGeocodedLatitude
+                let lastLon        = state.lastGeocodedLongitude
+                
                 return .run { send in
                     let subPoint = astronomyService.subStellarPoint(constellation: constellation)
-                    
                     let horizontal = astronomyService.horizontalCoordinates(
                         constellation: constellation,
                         observerLatitude: userLatitude,
                         observerLongitude: userLongitude
                     )
                     
-                    // CLGeocoder로 지역명 가져오기
-                    let region = await astronomyService.regionName(
-                        latitude: subPoint.latitude,
-                        longitude: subPoint.longitude
-                    )
+                    let distChanged = abs(subPoint.latitude - lastLat) + abs(subPoint.longitude - lastLon)
+                    
+                    let region: String
+                    if cachedRegion.isEmpty || distChanged > 5.0 {
+                        region = await astronomyService.regionName(
+                            latitude: subPoint.latitude,
+                            longitude: subPoint.longitude
+                        )
+                    } else {
+                        region = cachedRegion  // 캐시 사용
+                    }
                     
                     let briefing = "\(nickname) 님의 별은 지금\n\(region)을 비추고 있어요"
                     
@@ -152,17 +167,21 @@ struct HomeFeature {
                         ),
                         altitude: horizontal.altitude.value,
                         azimuth: horizontal.northBasedAzimuth.value,
-                        briefing: briefing
+                        briefing: briefing,
+                        regionName: region
                     ))
                 }
                 
-            case let .starPositionUpdated(subPoint, altitude, azimuth, briefing):
+            case let .starPositionUpdated(subPoint, altitude, azimuth, briefing, regionName):
                 state.isLoading           = false
                 state.subStellarLatitude  = subPoint.latitude
                 state.subStellarLongitude = subPoint.longitude
                 state.starAltitude        = altitude
                 state.starAzimuth         = azimuth
                 state.briefingText        = briefing
+                state.cachedRegionName       = regionName  
+                state.lastGeocodedLatitude   = subPoint.latitude
+                state.lastGeocodedLongitude  = subPoint.longitude
                 return .none
                 
             // MARK: - 센서 업데이트
