@@ -22,6 +22,8 @@ struct SplashView: View {
             Color.Yunseul.background
                 .ignoresSafeArea()
             
+            NebulaView()
+            
             VStack(spacing: 0) {
                 
                 Spacer()

@@ -30,6 +30,8 @@ struct HomeView: View {
                 Color.Yunseul.background
                     .ignoresSafeArea()
                 
+                NebulaView()
+                
                 if viewStore.isLoading {
                     loadingView
                 } else {
