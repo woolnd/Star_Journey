@@ -48,6 +48,10 @@ struct HomeFeature {
         var azimuthDiff: Double = 0
         var altitudeDiff: Double = 0
         var isStarAligned: Bool = false
+        
+        var cachedRegionName: String = ""
+        var lastGeocodedLatitude: Double = 0
+        var lastGeocodedLongitude: Double = 0
     }
     
     enum Action: Equatable {
@@ -65,8 +69,10 @@ struct HomeFeature {
             subPoint: StarSubPointEquatable,
             altitude: Double,
             azimuth: Double,
-            briefing: String
+            briefing: String,
+            regionName: String
         )
+
         
         // MARK: - 센서
         case sensorUpdated(azimuth: Double, altitude: Double)
@@ -94,8 +100,24 @@ struct HomeFeature {
                     state.nickname = birthStar.nickname ?? ""
                 }
                 
+                let constellation = state.constellation
+                let nickname = state.nickname
+                
                 return .merge(
-                    .run { _ in locationService.requestPermissionAndStart() },
+                    .run { _ in
+                        // ① 위치 권한 - 사용자가 선택할 때까지 대기
+                        await locationService.requestAuthorizationAndWait()
+                        locationService.startUpdatingLocation()
+                        
+                        // ② 위치 권한 처리 완료 후 알림 권한
+                        let granted = await NotificationService.shared.requestAuthorization()
+                        if granted {
+                            NotificationService.shared.scheduleDailyStarNotification(
+                                constellation: constellation,
+                                nickname: nickname
+                            )
+                        }
+                    },
                     .run { _ in motionService.start() },
                     .send(.calculateStarPosition),
                     .run { send in
@@ -128,20 +150,29 @@ struct HomeFeature {
                 let userLongitude = state.userLongitude == 0 ? 126.9780 : state.userLongitude
                 let nickname      = state.nickname
                 
+                let cachedRegion   = state.cachedRegionName
+                let lastLat        = state.lastGeocodedLatitude
+                let lastLon        = state.lastGeocodedLongitude
+                
                 return .run { send in
                     let subPoint = astronomyService.subStellarPoint(constellation: constellation)
-                    
                     let horizontal = astronomyService.horizontalCoordinates(
                         constellation: constellation,
                         observerLatitude: userLatitude,
                         observerLongitude: userLongitude
                     )
                     
-                    // CLGeocoder로 지역명 가져오기
-                    let region = await astronomyService.regionName(
-                        latitude: subPoint.latitude,
-                        longitude: subPoint.longitude
-                    )
+                    let distChanged = abs(subPoint.latitude - lastLat) + abs(subPoint.longitude - lastLon)
+                    
+                    let region: String
+                    if cachedRegion.isEmpty || distChanged > 5.0 {
+                        region = await astronomyService.regionName(
+                            latitude: subPoint.latitude,
+                            longitude: subPoint.longitude
+                        )
+                    } else {
+                        region = cachedRegion  // 캐시 사용
+                    }
                     
                     let briefing = "\(nickname) 님의 별은 지금\n\(region)을 비추고 있어요"
                     
@@ -152,18 +183,35 @@ struct HomeFeature {
                         ),
                         altitude: horizontal.altitude.value,
                         azimuth: horizontal.northBasedAzimuth.value,
-                        briefing: briefing
+                        briefing: briefing,
+                        regionName: region
                     ))
                 }
                 
-            case let .starPositionUpdated(subPoint, altitude, azimuth, briefing):
+            case let .starPositionUpdated(subPoint, altitude, azimuth, briefing, regionName):
                 state.isLoading           = false
                 state.subStellarLatitude  = subPoint.latitude
                 state.subStellarLongitude = subPoint.longitude
                 state.starAltitude        = altitude
                 state.starAzimuth         = azimuth
                 state.briefingText        = briefing
-                return .none
+                state.cachedRegionName    = regionName
+                state.lastGeocodedLatitude  = subPoint.latitude
+                state.lastGeocodedLongitude = subPoint.longitude
+                
+                let constellation = state.constellation
+                let nickname      = state.nickname
+                let lat           = subPoint.latitude
+                let lon           = subPoint.longitude
+                
+                return .run { _ in
+                    NotificationService.shared.scheduleKoreaProximityNotification(
+                        constellation: constellation,
+                        nickname: nickname,
+                        subStellarLatitude: lat,
+                        subStellarLongitude: lon
+                    )
+                }
                 
             // MARK: - 센서 업데이트
             case let .sensorUpdated(azimuth, altitude):

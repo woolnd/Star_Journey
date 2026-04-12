@@ -47,13 +47,13 @@ struct NebulaView: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color(hex: "1a2d60").opacity(0.15))
+                .fill(Color.Yunseul.nebula1.opacity(0.5))
                 .frame(width: 300, height: 300)
                 .offset(x: -100, y: -200)
                 .blur(radius: 60)
             
             Circle()
-                .fill(Color(hex: "2a1d60").opacity(0.1))
+                .fill(Color.Yunseul.nebula2.opacity(0.4))
                 .frame(width: 250, height: 250)
                 .offset(x: 120, y: 200)
                 .blur(radius: 50)
@@ -72,47 +72,43 @@ struct NicknameStepView: View {
             
             Spacer()
             
-            // 별 아이콘
             Image(systemName: "star.fill")
                 .font(.system(size: 32))
                 .foregroundColor(Color.Yunseul.starBlue)
                 .padding(.bottom, 32)
             
-            // 타이틀
             VStack(spacing: 10) {
                 Text("당신을 뭐라고")
-                    .font(.custom("Georgia", size: 26))
+                    .font(.Yunseul.constellationName)
                     .foregroundColor(Color.Yunseul.textPrimary)
                 
                 Text("불러드릴까요?")
-                    .font(.custom("Georgia", size: 26))
+                    .font(.Yunseul.constellationName)
                     .foregroundColor(Color.Yunseul.textPrimary)
             }
             .padding(.bottom, 12)
             
             Text("별이 당신을 기억할 이름이에요")
-                .font(.custom("Georgia-Italic", size: 13))
+                .font(.Yunseul.briefingSmall)
                 .foregroundColor(Color.Yunseul.textSecondary)
                 .padding(.bottom, 52)
             
-            //텍스트 필드
             VStack(spacing: 0) {
                 TextField("", text: viewStore.binding(
                     get: \.nickname,
                     send: OnboardingFeature.Action.nicknameChanged
                 ))
-                .font(.custom("Georgia", size: 20))
+                .font(.Yunseul.subheadline)
                 .foregroundColor(Color.Yunseul.textPrimary)
                 .multilineTextAlignment(.center)
                 .focused($isFocused)
                 .placeholder(when: viewStore.nickname.isEmpty) {
                     Text("닉네임을 입력해주세요")
-                        .font(.custom("Georgia", size: 20))
+                        .font(.Yunseul.subheadline)
                         .foregroundColor(Color.Yunseul.textTertiary)
                 }
                 .padding(.bottom, 12)
                 
-                // 언더라인
                 Rectangle()
                     .frame(height: 0.5)
                     .foregroundColor(isFocused ?
@@ -122,13 +118,12 @@ struct NicknameStepView: View {
             .padding(.horizontal, 48)
             .padding(.bottom, 52)
             
-            // 다음 버튼
             Button {
                 viewStore.send(.nicknameNextTapped)
                 isFocused = false
             } label: {
                 Text("다음")
-                    .font(.custom("Georgia", size: 15))
+                    .font(.Yunseul.callout)
                     .foregroundColor(viewStore.nickname.isEmpty
                                      ? Color.Yunseul.textTertiary
                                      : Color.Yunseul.starBlue)
@@ -164,30 +159,27 @@ struct BirthDateStepView: View {
         VStack(spacing: 0) {
             Spacer()
             
-            // 별 아이콘
             Image(systemName: "moon.stars.fill")
                 .font(.system(size: 32))
                 .foregroundColor(Color.Yunseul.starBlue)
                 .padding(.bottom, 32)
             
-            // 타이틀
             VStack(spacing: 0) {
                 Text("\(viewStore.nickname)님의")
-                    .font(.custom("Georgia", size: 26))
+                    .font(.Yunseul.constellationName)    
                     .foregroundColor(Color.Yunseul.textPrimary)
                 
                 Text("태어난 날은요?")
-                    .font(.custom("Georgia", size: 26))
+                    .font(.Yunseul.constellationName)
                     .foregroundColor(Color.Yunseul.textPrimary)
             }
             .padding(.bottom, 12)
             
             Text("별자리를 찾기 위해 필요해요")
-                .font(.custom("Georgia-Italic", size: 13))
+                .font(.Yunseul.briefingSmall)
                 .foregroundColor(Color.Yunseul.textSecondary)
                 .padding(.bottom, 48)
             
-            // DatePicker
             DatePicker(
                 "",
                 selection: viewStore.binding(
@@ -198,16 +190,15 @@ struct BirthDateStepView: View {
             )
             .datePickerStyle(.wheel)
             .labelsHidden()
-            .colorScheme(.dark)
+            .colorScheme(.light)
             .padding(.horizontal, 24)
             .padding(.bottom, 48)
             
-            // 다음 버튼
             Button {
                 viewStore.send(.birthDateNextTapped)
             } label: {
                 Text("내 별자리 찾기")
-                    .font(.custom("Georgia", size: 15))
+                    .font(.Yunseul.callout)
                     .foregroundColor(Color.Yunseul.starBlue)
                     .tracking(4)
                     .frame(maxWidth: .infinity)
@@ -241,36 +232,32 @@ struct ConstellationResultView: View {
         VStack(spacing: 0) {
             Spacer()
             
-            // 별 아이콘
             ConstellationShapeView(constellation: viewStore.constellation)
                 .opacity(starOpacity)
                 .padding(.bottom, 16)
             
-            // 별자리 이름
             VStack(spacing: 8) {
                 Text(viewStore.constellation.rawValue)
-                    .font(.custom("Georgia", size: 32))
+                    .font(.Yunseul.constellationName)
                     .foregroundColor(Color.Yunseul.textPrimary)
                     .tracking(4)
                 
                 Text(viewStore.constellation.latinName)
-                    .font(.custom("Georgia-Italic", size: 13))
+                    .font(.Yunseul.constellationSub)
                     .foregroundColor(Color.Yunseul.textSecondary)
                     .tracking(3)
             }
             .opacity(nameOpacity)
             .padding(.bottom, 40)
             
-            // 구분선
             Rectangle()
                 .frame(width: 0.5, height: 32)
                 .foregroundColor(Color.Yunseul.border)
                 .opacity(descOpacity)
                 .padding(.bottom, 40)
             
-            // 감섬 설명
             Text(viewStore.constellationDescription)
-                .font(.custom("Georgia-Italic", size: 15))
+                .font(.Yunseul.story)
                 .foregroundColor(Color.Yunseul.textSecondary)
                 .multilineTextAlignment(.center)
                 .lineSpacing(8)
@@ -278,7 +265,6 @@ struct ConstellationResultView: View {
                 .padding(.horizontal, 48)
                 .padding(.bottom, 52)
             
-            // 시작 버튼
             Button {
                 viewStore.send(.beginTapped)
             } label: {
@@ -288,7 +274,7 @@ struct ConstellationResultView: View {
                             .tint(Color.Yunseul.starBlue)
                     } else {
                         Text("별빛을 따라가기")
-                            .font(.custom("Georgia", size: 15))
+                            .font(.Yunseul.callout)       
                             .foregroundColor(Color.Yunseul.starBlue)
                             .tracking(4)
                     }
@@ -311,18 +297,10 @@ struct ConstellationResultView: View {
             Spacer()
         }
         .onAppear {
-            withAnimation(.easeIn(duration: 0.8)) {
-                starOpacity = 1
-            }
-            withAnimation(.easeIn(duration: 0.8).delay(0.4)) {
-                nameOpacity = 1
-            }
-            withAnimation(.easeIn(duration: 0.8).delay(0.8)) {
-                descOpacity = 1
-            }
-            withAnimation(.easeIn(duration: 0.8).delay(1.2)) {
-                btnOpacity = 1
-            }
+            withAnimation(.easeIn(duration: 0.8)) { starOpacity = 1 }
+            withAnimation(.easeIn(duration: 0.8).delay(0.4)) { nameOpacity = 1 }
+            withAnimation(.easeIn(duration: 0.8).delay(0.8)) { descOpacity = 1 }
+            withAnimation(.easeIn(duration: 0.8).delay(1.2)) { btnOpacity = 1 }
         }
     }
 }

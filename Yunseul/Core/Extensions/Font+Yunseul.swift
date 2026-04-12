@@ -10,23 +10,28 @@ import SwiftUI
 
 extension Font {
     enum Yunseul {
-        // 타이틀
-        static let largeTitle  = Font.custom("Georgia", size: 36)
-        static let title       = Font.custom("Georgia", size: 28)
-        static let title2      = Font.custom("Georgia", size: 24)
-        static let title3      = Font.custom("Georgia", size: 20)
+        // MARK: - UI - 에스코어드림
+        static let title3         = Font.custom("SCDream6", size: 20)
+        static let subheadline    = Font.custom("SCDream5", size: 15)
+        static let callout        = Font.custom("SCDream5", size: 14)
+        static let footnote       = Font.custom("SCDream4", size: 13)
+        static let footnoteItalic = Font.custom("SCDream4", size: 13)
+        static let caption        = Font.custom("SCDream3", size: 11)
+        static let captionLight   = Font.custom("SCDream3", size: 10)
         
-        // 바디
-        static let body        = Font.custom("Georgia", size: 16)
-        static let callout     = Font.custom("Georgia", size: 15)
-        static let subheadline = Font.custom("Georgia", size: 14)
-        static let footnote    = Font.custom("Georgia", size: 13)
-        static let caption     = Font.custom("Georgia", size: 12)
+        // MARK: - 감성 - 마포꽃섬
+        static let story             = Font.custom("MapoFlowerIsland", size: 15)
+        static let storyLarge        = Font.custom("MapoFlowerIsland", size: 20)
+        static let storyTitle        = Font.custom("MapoFlowerIsland", size: 20)
+        static let constellationName = Font.custom("MapoFlowerIsland", size: 28)
+        static let constellationSub  = Font.custom("MapoFlowerIsland", size: 14)
         
-        // 이탤릭
-        static let titleItalic    = Font.custom("Georgia-Italic", size: 28)
-        static let bodyItalic     = Font.custom("Georgia-Italic", size: 16)
-        static let calloutItalic  = Font.custom("Georgia-Italic", size: 15)
-        static let footnoteItalic = Font.custom("Georgia-Italic", size: 13)
+        // MARK: - 앱 타이틀 - 마포꽃섬
+        static let appTitle          = Font.custom("MapoFlowerIsland", size: 36)
+        static let appSubtitle       = Font.custom("MapoFlowerIsland", size: 13)
+        
+        // MARK: - 브리핑 텍스트
+        static let briefing          = Font.custom("SCDream4", size: 18)
+        static let briefingSmall     = Font.custom("SCDream3", size: 14)
     }
 }

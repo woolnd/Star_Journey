@@ -36,22 +36,26 @@ extension Color {
 
 extension Color {
     enum Yunseul {
-        // 배경
-        static let background    = Color(hex: "04060E")  // 심해 네이비
-        static let surface       = Color(hex: "060C1E")  // 카드 배경
-        static let elevated      = Color(hex: "080E24")  // 올라온 카드
-        
+        // 배경 (블루그레이 - 채도 낮춤)
+        static let background    = Color(hex: "E8EAED")
+        static let surface       = Color(hex: "E0E2E7")
+        static let elevated      = Color(hex: "D8DBE2")
+
         // 텍스트
-        static let textPrimary   = Color(hex: "C2D3F5")  // 메인 텍스트 (밝은 블루화이트)
-        static let textSecondary = Color(hex: "7A9FE0")  // 서브 텍스트 (별빛 블루) ← 밝게
-        static let textTertiary  = Color(hex: "4A6AAA")  // 힌트 텍스트 ← 밝게
-        
+        static let textPrimary   = Color(hex: "1A1D23")
+        static let textSecondary = Color(hex: "5C6478")
+        static let textTertiary  = Color(hex: "9BA3B5")
+
         // 강조
-        static let starBlue      = Color(hex: "8AAEFF")  // 별빛 블루
-        static let liveGreen     = Color(hex: "32D28C")  // 라이브 도트
-        
+        static let starBlue      = Color(hex: "4A7DE0")
+        static let liveGreen     = Color(hex: "28B085")
+
         // 보더
-        static let border        = Color(hex: "2A3D6A")  // 기본 보더
-        static let borderFaint   = Color(hex: "1A2540")  // 희미한 보더
+        static let border        = Color(hex: "C8CCD8")
+        static let borderFaint   = Color(hex: "D8DBE8")
+
+        // 성운
+        static let nebula1       = Color(hex: "B8C4D8")
+        static let nebula2       = Color(hex: "C0CCD8")  
     }
 }

@@ -19,9 +19,10 @@ struct SplashView: View {
     
     var body: some View {
         ZStack {
-            // 배경
             Color.Yunseul.background
                 .ignoresSafeArea()
+            
+            NebulaView()
             
             VStack(spacing: 0) {
                 
@@ -30,13 +31,13 @@ struct SplashView: View {
                 // 별 아이콘
                 Image(systemName: "star.fill")
                     .font(.system(size: 48))
-                    .foregroundColor(Color.Yunseul.textPrimary)
+                    .foregroundColor(Color.Yunseul.starBlue)
                     .opacity(titleOpacity)
                     .padding(.bottom, 28)
                 
                 // 앱 이름
                 Text("윤슬")
-                    .font(.custom("Georgia", size: 36))
+                    .font(.Yunseul.appTitle)
                     .foregroundColor(Color.Yunseul.textPrimary)
                     .tracking(12)
                     .opacity(titleOpacity)
@@ -44,7 +45,7 @@ struct SplashView: View {
                 
                 // 영문
                 Text("Yunseul")
-                    .font(.custom("Georgia-Italic", size: 13))
+                    .font(.Yunseul.appSubtitle)
                     .foregroundColor(Color.Yunseul.starBlue)
                     .tracking(6)
                     .opacity(titleOpacity)
@@ -53,19 +54,19 @@ struct SplashView: View {
                 // 구분선
                 Rectangle()
                     .frame(width: 0.5, height: 36)
-                    .foregroundColor(Color(hex: "2A3D6A"))
+                    .foregroundColor(Color.Yunseul.border)
                     .opacity(subtitleOpacity)
                     .padding(.bottom, 48)
                 
                 // 태그라인
                 VStack(spacing: 12) {
                     Text("당신의 별은 지금 이 순간")
-                        .font(.custom("Georgia", size: 14))
+                        .font(.Yunseul.briefingSmall)
                         .foregroundColor(Color.Yunseul.textSecondary)
                         .tracking(2)
                     
                     Text("지구 어디를 비추고 있을까요?")
-                        .font(.custom("Georgia", size: 14))
+                        .font(.Yunseul.briefingSmall) 
                         .foregroundColor(Color.Yunseul.textSecondary)
                         .tracking(2)
                 }
@@ -95,10 +96,4 @@ struct SplashView: View {
             taglineOpacity = 1
         }
     }
-}
-
-#Preview {
-    SplashView(store: Store(initialState: SplashFeature.State()) {
-        SplashFeature()
-    })
 }

@@ -46,6 +46,13 @@
 		6DEBFE9F2F8A918B00D258B8 /* SensorComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE9E2F8A918B00D258B8 /* SensorComparison.swift */; };
 		6DEBFEA12F8A91C000D258B8 /* StarSubPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA02F8A91C000D258B8 /* StarSubPoint.swift */; };
 		6DEBFEA42F8AAA0100D258B8 /* StarCompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */; };
+		6DEBFEAA2F8AE2E500D258B8 /* StarRelationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA92F8AE2E500D258B8 /* StarRelationView.swift */; };
+		6DEBFEAC2F8AE3D900D258B8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEAB2F8AE3D900D258B8 /* NotificationService.swift */; };
+		6DEBFEAF2F8BECA600D258B8 /* MapoFlowerIsland.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFEAE2F8BECA600D258B8 /* MapoFlowerIsland.otf */; };
+		6DEBFEB12F8BECD500D258B8 /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFEB02F8BECD500D258B8 /* SCDream3.otf */; };
+		6DEBFEB32F8BECD900D258B8 /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFEB22F8BECD900D258B8 /* SCDream4.otf */; };
+		6DEBFEB52F8BECDC00D258B8 /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFEB42F8BECDC00D258B8 /* SCDream5.otf */; };
+		6DEBFEB72F8BECE000D258B8 /* SCDream6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFEB62F8BECE000D258B8 /* SCDream6.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +89,13 @@
 		6DEBFEA02F8A91C000D258B8 /* StarSubPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSubPoint.swift; sourceTree = "<group>"; };
 		6DEBFEA22F8AA7B200D258B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCompassView.swift; sourceTree = "<group>"; };
+		6DEBFEA92F8AE2E500D258B8 /* StarRelationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRelationView.swift; sourceTree = "<group>"; };
+		6DEBFEAB2F8AE3D900D258B8 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		6DEBFEAE2F8BECA600D258B8 /* MapoFlowerIsland.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapoFlowerIsland.otf; sourceTree = "<group>"; };
+		6DEBFEB02F8BECD500D258B8 /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
+		6DEBFEB22F8BECD900D258B8 /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
+		6DEBFEB42F8BECDC00D258B8 /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
+		6DEBFEB62F8BECE000D258B8 /* SCDream6.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream6.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +183,7 @@
 		6DEBFE232F88AF0E00D258B8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6DEBFEAD2F8BEC9B00D258B8 /* Font */,
 				6DEBFE412F88B52000D258B8 /* Localization */,
 			);
 			path = Resources;
@@ -187,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				6DEBFE352F88AFFD00D258B8 /* HomeFeature.swift */,
+				6DEBFEA92F8AE2E500D258B8 /* StarRelationView.swift */,
 				6DEBFE372F88B00300D258B8 /* HomeView.swift */,
 				6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */,
 			);
@@ -228,6 +244,7 @@
 				6DEBFE962F8A7E8200D258B8 /* AstronomyService.swift */,
 				6DEBFE982F8A827000D258B8 /* LocationService.swift */,
 				6DEBFE9A2F8A89AF00D258B8 /* MotionService.swift */,
+				6DEBFEAB2F8AE3D900D258B8 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -284,6 +301,18 @@
 				6DEBFE852F88C45100D258B8 /* SplashView.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		6DEBFEAD2F8BEC9B00D258B8 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				6DEBFEB02F8BECD500D258B8 /* SCDream3.otf */,
+				6DEBFEB22F8BECD900D258B8 /* SCDream4.otf */,
+				6DEBFEB42F8BECDC00D258B8 /* SCDream5.otf */,
+				6DEBFEB62F8BECE000D258B8 /* SCDream6.otf */,
+				6DEBFEAE2F8BECA600D258B8 /* MapoFlowerIsland.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,7 +395,12 @@
 				6DEBFE1F2F88AEDC00D258B8 /* Assets.xcassets in Resources */,
 				6DEBFE4E2F88B5AF00D258B8 /* Localizable.strings in Resources */,
 				6DEBFE4B2F88B5AA00D258B8 /* Localizable.strings in Resources */,
+				6DEBFEB72F8BECE000D258B8 /* SCDream6.otf in Resources */,
+				6DEBFEB32F8BECD900D258B8 /* SCDream4.otf in Resources */,
+				6DEBFEB12F8BECD500D258B8 /* SCDream3.otf in Resources */,
+				6DEBFEAF2F8BECA600D258B8 /* MapoFlowerIsland.otf in Resources */,
 				6DEBFE482F88B5A400D258B8 /* Localizable.strings in Resources */,
+				6DEBFEB52F8BECDC00D258B8 /* SCDream5.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +420,7 @@
 				6DEBFE9B2F8A89AF00D258B8 /* MotionService.swift in Sources */,
 				6DEBFE972F8A7E8200D258B8 /* AstronomyService.swift in Sources */,
 				6DEBFE3A2F88B00A00D258B8 /* TracesFeature.swift in Sources */,
+				6DEBFEAA2F8AE2E500D258B8 /* StarRelationView.swift in Sources */,
 				6DEBFE952F89004300D258B8 /* ConstellationShapeView.swift in Sources */,
 				6DEBFE362F88AFFD00D258B8 /* HomeFeature.swift in Sources */,
 				6DEBFE342F88AFF600D258B8 /* OnboardingView.swift in Sources */,
@@ -403,6 +438,7 @@
 				6DEBFE522F88BA7500D258B8 /* MainTabView.swift in Sources */,
 				6DEBFEA12F8A91C000D258B8 /* StarSubPoint.swift in Sources */,
 				6DEBFE842F88C44800D258B8 /* SplashFeature.swift in Sources */,
+				6DEBFEAC2F8AE3D900D258B8 /* NotificationService.swift in Sources */,
 				6DEBFE862F88C45100D258B8 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
