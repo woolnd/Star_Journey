@@ -72,7 +72,7 @@ struct HomeFeature {
             briefing: String,
             regionName: String
         )
-
+        
         
         // MARK: - 센서
         case sensorUpdated(azimuth: Double, altitude: Double)
@@ -91,7 +91,7 @@ struct HomeFeature {
         Reduce { state, action in
             switch action {
                 
-            // MARK: - 앱 진입
+                // MARK: - 앱 진입
             case .onAppear:
                 state.isLoading = true
                 
@@ -105,11 +105,11 @@ struct HomeFeature {
                 
                 return .merge(
                     .run { _ in
-                        // ① 위치 권한 - 사용자가 선택할 때까지 대기
+                        // ① 위치 권한 먼저
                         await locationService.requestAuthorizationAndWait()
                         locationService.startUpdatingLocation()
                         
-                        // ② 위치 권한 처리 완료 후 알림 권한
+                        // ② 알림 권한
                         let granted = await NotificationService.shared.requestAuthorization()
                         if granted {
                             NotificationService.shared.scheduleDailyStarNotification(
@@ -120,6 +120,11 @@ struct HomeFeature {
                     },
                     .run { _ in motionService.start() },
                     .send(.calculateStarPosition),
+                    .run { [constellation] _ in
+                        await StarTrailService.shared.fillMissingDates(
+                            constellation: constellation
+                        )
+                    },
                     .run { send in
                         while true {
                             try await Task.sleep(nanoseconds: 15_000_000_000)
@@ -133,7 +138,7 @@ struct HomeFeature {
                 motionService.stop()
                 return .none
                 
-            // MARK: - 위치 업데이트
+                // MARK: - 위치 업데이트
             case let .locationUpdated(lat, lon):
                 state.userLatitude  = lat
                 state.userLongitude = lon
@@ -143,7 +148,7 @@ struct HomeFeature {
                 state.locationAuthorizationDenied = true
                 return .none
                 
-            // MARK: - 천문 계산
+                // MARK: - 천문 계산
             case .calculateStarPosition:
                 let constellation = state.constellation
                 let userLatitude  = state.userLatitude  == 0 ? 37.5665  : state.userLatitude
@@ -213,17 +218,17 @@ struct HomeFeature {
                     )
                 }
                 
-            // MARK: - 센서 업데이트
+                // MARK: - 센서 업데이트
             case let .sensorUpdated(azimuth, altitude):
                 state.deviceAzimuth  = azimuth
                 state.deviceAltitude = altitude
                 state.azimuthDiff    = angleDiff(state.starAzimuth, azimuth)
                 state.altitudeDiff   = state.starAltitude - altitude
                 state.isStarAligned  = abs(state.azimuthDiff) < 2.0
-                                    && abs(state.altitudeDiff) < 2.0
+                && abs(state.altitudeDiff) < 2.0
                 return .none
                 
-            // MARK: - UI
+                // MARK: - UI
             case .compassModeOpen:
                 state.isCompassMode = true
                 return .none

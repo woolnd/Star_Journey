@@ -22,6 +22,7 @@ struct HomeView: View {
     
     let store: Store<HomeFeature.State, HomeFeature.Action>
     @State private var holder = DisposeBagHolder()
+    @State private var journalRefreshID = UUID()
     
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
@@ -48,7 +49,10 @@ struct HomeView: View {
             .fullScreenCover(
                 isPresented: Binding(
                     get: { viewStore.isCompassMode },
-                    set: { if !$0 { viewStore.send(.compassModeClose) } }
+                    set: { if !$0 {
+                        viewStore.send(.compassModeClose)
+                        journalRefreshID = UUID()
+                    }}
                 )
             ) {
                 StarCompassView(viewStore: viewStore)
@@ -92,6 +96,11 @@ struct HomeView: View {
                 
                 // 버튼 영역
                 buttonSection(viewStore: viewStore)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 32)
+                
+                StarJournalView()
+                    .id(journalRefreshID)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 32)
                 
@@ -378,7 +387,7 @@ struct StarMapView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
-        mapView.mapType = .standard
+        mapView.mapType = .mutedStandard
         mapView.isScrollEnabled = false
         mapView.isZoomEnabled = false
         mapView.showsUserLocation = true

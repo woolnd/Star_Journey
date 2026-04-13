@@ -343,6 +343,8 @@ struct StarCompassView: View {
                     DispatchQueue.main.async {
                         self.isSaving = false
                         if success {
+                            self.saveJournalEntry()
+                            
                             withAnimation { self.showSaveSuccess = true }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                 withAnimation { self.showSaveSuccess = false }
@@ -351,6 +353,56 @@ struct StarCompassView: View {
                     }
                 }
             }
+        }
+    }
+
+    // MARK: - Journal 저장
+    private func saveJournalEntry() {
+        Task {
+            let astronomyService = AstronomyService.shared
+            
+            // 거리 계산
+            let distance = astronomyService.distanceKm(
+                userLat: viewStore.userLatitude,
+                userLon: viewStore.userLongitude,
+                starLat: viewStore.subStellarLatitude,
+                starLon: viewStore.subStellarLongitude
+            )
+            
+            // 방향
+            let direction = astronomyService.directionString(
+                from: viewStore.starAzimuth
+            )
+            
+            // 내 위치 지역명
+            let userRegion = await astronomyService.regionName(
+                latitude: viewStore.userLatitude,
+                longitude: viewStore.userLongitude
+            )
+            
+            // 사진 경로 (날짜 기반)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyyMMdd_HHmmss"
+            let photoPath = "journal_\(formatter.string(from: Date()))"
+            
+            CoreDataService.shared.saveJournalEntry(
+                date: Date(),
+                constellation: viewStore.constellation.rawValue,
+                starLatitude: viewStore.subStellarLatitude,
+                starLongitude: viewStore.subStellarLongitude,
+                starRegionName: viewStore.cachedRegionName,
+                userLatitude: viewStore.userLatitude,
+                userLongitude: viewStore.userLongitude,
+                userRegionName: userRegion,
+                starAltitude: viewStore.starAltitude,
+                starAzimuth: viewStore.starAzimuth,
+                distanceKm: distance,
+                starDirection: direction,
+                photoPath: photoPath,
+                memo: nil
+            )
+            
+            print("✦ [Journal] 별빛 일기 저장 완료 - \(direction) / \(distance)km")
         }
     }
     

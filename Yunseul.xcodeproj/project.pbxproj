@@ -43,7 +43,6 @@
 		6DEBFE972F8A7E8200D258B8 /* AstronomyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE962F8A7E8200D258B8 /* AstronomyService.swift */; };
 		6DEBFE992F8A827000D258B8 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE982F8A827000D258B8 /* LocationService.swift */; };
 		6DEBFE9B2F8A89AF00D258B8 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE9A2F8A89AF00D258B8 /* MotionService.swift */; };
-		6DEBFE9F2F8A918B00D258B8 /* SensorComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFE9E2F8A918B00D258B8 /* SensorComparison.swift */; };
 		6DEBFEA12F8A91C000D258B8 /* StarSubPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA02F8A91C000D258B8 /* StarSubPoint.swift */; };
 		6DEBFEA42F8AAA0100D258B8 /* StarCompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */; };
 		6DEBFEAA2F8AE2E500D258B8 /* StarRelationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEA92F8AE2E500D258B8 /* StarRelationView.swift */; };
@@ -53,6 +52,8 @@
 		6DEBFEB32F8BECD900D258B8 /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFEB22F8BECD900D258B8 /* SCDream4.otf */; };
 		6DEBFEB52F8BECDC00D258B8 /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFEB42F8BECDC00D258B8 /* SCDream5.otf */; };
 		6DEBFEB72F8BECE000D258B8 /* SCDream6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFEB62F8BECE000D258B8 /* SCDream6.otf */; };
+		6DEBFEBD2F8C6A6700D258B8 /* StarTrailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEBC2F8C6A6700D258B8 /* StarTrailService.swift */; };
+		6DEBFEBF2F8C6CFC00D258B8 /* StarJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEBE2F8C6CFC00D258B8 /* StarJournalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,7 +86,6 @@
 		6DEBFE962F8A7E8200D258B8 /* AstronomyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyService.swift; sourceTree = "<group>"; };
 		6DEBFE982F8A827000D258B8 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		6DEBFE9A2F8A89AF00D258B8 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
-		6DEBFE9E2F8A918B00D258B8 /* SensorComparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorComparison.swift; sourceTree = "<group>"; };
 		6DEBFEA02F8A91C000D258B8 /* StarSubPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSubPoint.swift; sourceTree = "<group>"; };
 		6DEBFEA22F8AA7B200D258B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCompassView.swift; sourceTree = "<group>"; };
@@ -96,6 +96,8 @@
 		6DEBFEB22F8BECD900D258B8 /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
 		6DEBFEB42F8BECDC00D258B8 /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
 		6DEBFEB62F8BECE000D258B8 /* SCDream6.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream6.otf; sourceTree = "<group>"; };
+		6DEBFEBC2F8C6A6700D258B8 /* StarTrailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarTrailService.swift; sourceTree = "<group>"; };
+		6DEBFEBE2F8C6CFC00D258B8 /* StarJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarJournalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				6DEBFEA92F8AE2E500D258B8 /* StarRelationView.swift */,
 				6DEBFE372F88B00300D258B8 /* HomeView.swift */,
 				6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */,
+				6DEBFEBE2F8C6CFC00D258B8 /* StarJournalView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				6DEBFE982F8A827000D258B8 /* LocationService.swift */,
 				6DEBFE9A2F8A89AF00D258B8 /* MotionService.swift */,
 				6DEBFEAB2F8AE3D900D258B8 /* NotificationService.swift */,
+				6DEBFEBC2F8C6A6700D258B8 /* StarTrailService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -254,7 +258,6 @@
 			children = (
 				6DEBFE8B2F88CC9200D258B8 /* Constellation.swift */,
 				6DEBFE942F89004300D258B8 /* ConstellationShapeView.swift */,
-				6DEBFE9E2F8A918B00D258B8 /* SensorComparison.swift */,
 				6DEBFEA02F8A91C000D258B8 /* StarSubPoint.swift */,
 			);
 			path = Models;
@@ -418,6 +421,7 @@
 				6DEBFE992F8A827000D258B8 /* LocationService.swift in Sources */,
 				6DEBFE8F2F88CEA900D258B8 /* Yunseul.xcdatamodeld in Sources */,
 				6DEBFE9B2F8A89AF00D258B8 /* MotionService.swift in Sources */,
+				6DEBFEBD2F8C6A6700D258B8 /* StarTrailService.swift in Sources */,
 				6DEBFE972F8A7E8200D258B8 /* AstronomyService.swift in Sources */,
 				6DEBFE3A2F88B00A00D258B8 /* TracesFeature.swift in Sources */,
 				6DEBFEAA2F8AE2E500D258B8 /* StarRelationView.swift in Sources */,
@@ -427,7 +431,6 @@
 				6DEBFE502F88B71200D258B8 /* AppView.swift in Sources */,
 				6DEBFE882F88C6A800D258B8 /* Color+Hex.swift in Sources */,
 				6DEBFE3C2F88B01000D258B8 /* TracesView.swift in Sources */,
-				6DEBFE9F2F8A918B00D258B8 /* SensorComparison.swift in Sources */,
 				6DEBFE402F88B01C00D258B8 /* SettingsView.swift in Sources */,
 				6DEBFE382F88B00300D258B8 /* HomeView.swift in Sources */,
 				6DEBFE932F88D87400D258B8 /* Font+Yunseul.swift in Sources */,
@@ -435,6 +438,7 @@
 				6DEBFE912F88CEF600D258B8 /* CoreDataService.swift in Sources */,
 				6DEBFE302F88AFE000D258B8 /* AppFeature.swift in Sources */,
 				6DEBFE1E2F88AEDC00D258B8 /* YunseulApp.swift in Sources */,
+				6DEBFEBF2F8C6CFC00D258B8 /* StarJournalView.swift in Sources */,
 				6DEBFE522F88BA7500D258B8 /* MainTabView.swift in Sources */,
 				6DEBFEA12F8A91C000D258B8 /* StarSubPoint.swift in Sources */,
 				6DEBFE842F88C44800D258B8 /* SplashFeature.swift in Sources */,
