@@ -40,7 +40,7 @@ final class CameraManager: NSObject, ObservableObject {
                 for: .video,
                 position: .back
             ),
-            let input = try? AVCaptureDeviceInput(device: device) else { return }
+                  let input = try? AVCaptureDeviceInput(device: device) else { return }
             
             self.session.addInput(input)
             self.session.addOutput(self.photoOutput)
@@ -98,6 +98,7 @@ struct StarCompassView: View {
     
     let viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
     var onJournalSaved: (() -> Void)? = nil
+    var onClose: (() -> Void)? = nil
     
     @StateObject private var cameraManager = CameraManager()
     @State private var starOpacity: Double = 0
@@ -211,7 +212,11 @@ struct StarCompassView: View {
             
             HStack {
                 Button {
-                    viewStore.send(.compassModeClose)
+                    if let onClose {
+                        onClose()
+                    } else {
+                        viewStore.send(.compassModeClose)
+                    }
                 } label: {
                     Image(systemName: "chevron.left")
                         .font(.system(size: 16, weight: .medium))
@@ -395,8 +400,8 @@ struct StarCompassView: View {
                         
                         self.saveJournalEntry(capturedImage: image)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                                self.onJournalSaved?()
-                                            }
+                            self.onJournalSaved?()
+                        }
                         self.capturedImage = nil
                         
                         withAnimation { self.showSaveSuccess = true }

@@ -19,6 +19,7 @@ struct TracesFeature {
         var currentMonth: Date = Date()
         var selectedDate: Date? = nil
         var selectedJournalEntry: StarJournalEntry? = nil
+        var isCompassMode: Bool = false
     }
     
     enum Action: Equatable {
@@ -32,6 +33,8 @@ struct TracesFeature {
         case journalDetailDismissed
         case journalEntriesLoaded([StarJournalEntry])
         case trailEntriesLoaded([StarTrailEntry])
+        case compassModeTapped
+        case compassModeClosed
     }
     
     var body: some Reducer<State, Action> {
@@ -48,6 +51,7 @@ struct TracesFeature {
             case let .tabSelected(tab):
                 state.selectedTab = tab
                 if tab == 1 {
+                    state.selectedDate = Date()
                     return .run { send in
                         let journals = CoreDataService.shared.fetchAllJournalEntries()
                         await send(.journalEntriesLoaded(journals))
@@ -100,6 +104,17 @@ struct TracesFeature {
             case let .trailEntriesLoaded(entries):
                 state.trailEntries = entries
                 return .none
+                
+            case .compassModeTapped:
+                state.isCompassMode = true
+                return .none
+
+            case .compassModeClosed:
+                state.isCompassMode = false
+                return .run { send in
+                    let journals = CoreDataService.shared.fetchAllJournalEntries()
+                    await send(.journalEntriesLoaded(journals))
+                }
             }
         }
     }

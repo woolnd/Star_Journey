@@ -21,7 +21,8 @@ struct MainTabView: View {
                     case .home:
                         HomeView(store: store.scope(state: \.home, action: \.home))
                     case .traces:
-                        TracesView(store: store.scope(state: \.traces, action: \.traces))
+                        TracesView(store: store.scope(state: \.traces, action: \.traces),
+                                   homeStore: store.scope(state: \.home, action: \.home))
                     case .settings:
                         SettingsView(store: store.scope(state: \.settings, action: \.settings))
                     }

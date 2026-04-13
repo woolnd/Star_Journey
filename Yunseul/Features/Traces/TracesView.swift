@@ -12,6 +12,7 @@ internal import CoreData
 struct TracesView: View {
     
     @Bindable var store: Store<TracesFeature.State, TracesFeature.Action>
+    let homeStore: Store<HomeFeature.State, HomeFeature.Action>
     
     var body: some View {
         ZStack {
@@ -43,7 +44,21 @@ struct TracesView: View {
         ) {
             if let entry = store.selectedJournalEntry {
                 StarJournalDetailView(entry: entry)
+            } else {
+                Color.clear
             }
+        }
+        .fullScreenCover(isPresented: Binding(
+            get: { store.isCompassMode },
+            set: { if !$0 { store.send(.compassModeClosed) } }
+        )) {
+            let homeViewStore = ViewStore(homeStore, observe: { $0 })
+            StarCompassView(
+                viewStore: homeViewStore,
+                onClose: {
+                    store.send(.compassModeClosed)
+                }
+            )
         }
     }
     
@@ -153,16 +168,61 @@ struct TracesView: View {
                     .padding(.horizontal, 20)
                     .padding(.top, 8)
                 
-                if let date = store.selectedDate,
-                   let entry = journalEntry(for: date, entries: store.journalEntries) {
-                    journalSummaryCard(entry: entry)
-                        .padding(.horizontal, 20)
-                        .id(entry.objectID)
+                if let date = store.selectedDate {
+                    if let entry = journalEntry(for: date, entries: store.journalEntries) {
+                        journalSummaryCard(entry: entry)
+                            .padding(.horizontal, 20)
+                            .id(entry.objectID)
+                    } else if Calendar.current.isDateInToday(date) {
+                        noJournalTodayCard
+                            .padding(.horizontal, 20)
+                    }
                 }
                 
-                Spacer().frame(height: 48)
+                Spacer().frame(height: 100)
             }
         }
+    }
+    
+    // MARK: - 오늘 일기 없음 카드
+    private var noJournalTodayCard: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "camera.fill")
+                .font(.system(size: 28))
+                .foregroundColor(Color.Yunseul.textTertiary.opacity(0.5))
+            
+            Text("오늘의 별빛을 아직 담지 않았어요")
+                .font(.Yunseul.briefingSmall)
+                .foregroundColor(Color.Yunseul.textTertiary)
+                .multilineTextAlignment(.center)
+                .lineSpacing(4)
+            
+            Button {
+                store.send(.compassModeTapped)
+            } label: {
+                HStack {
+                    Image(systemName: "camera.fill")
+                        .font(.system(size: 14))
+                    Text("별과 함께 하늘 찍기")
+                        .font(.Yunseul.callout)
+                        .tracking(2)
+                }
+                .foregroundColor(Color.Yunseul.starBlue)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color.Yunseul.starBlue.opacity(0.3), lineWidth: 0.5)
+                )
+            }
+        }
+        .padding(20)
+        .background(Color.Yunseul.surface)
+        .cornerRadius(20)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.Yunseul.border.opacity(0.3) as Color, lineWidth: 0.5)
+        )
     }
     
     // MARK: - 캘린더 뷰
@@ -558,9 +618,12 @@ struct TracesView: View {
 }
 
 #Preview {
-    TracesView(store: Store(
-        initialState: TracesFeature.State()
-    ) {
-        TracesFeature()
-    })
+    TracesView(
+        store: Store(initialState: TracesFeature.State()) {
+            TracesFeature()
+        },
+        homeStore: Store(initialState: HomeFeature.State()) {
+            HomeFeature()
+        }
+    )
 }
