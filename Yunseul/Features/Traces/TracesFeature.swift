@@ -47,6 +47,12 @@ struct TracesFeature {
                 }
             case let .tabSelected(tab):
                 state.selectedTab = tab
+                if tab == 1 {
+                    return .run { send in
+                        let journals = CoreDataService.shared.fetchAllJournalEntries()
+                        await send(.journalEntriesLoaded(journals))
+                    }
+                }
                 return .none
                 
             case .previousMonthTapped:
