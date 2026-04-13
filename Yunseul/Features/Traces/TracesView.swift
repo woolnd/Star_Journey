@@ -35,11 +35,6 @@ struct TracesView: View {
         .onAppear {
             store.send(.onAppear)
         }
-        .onChange(of: store.selectedTab) { _, tab in
-            if tab == 1 {
-                store.send(.onAppear)
-            }
-        }
         .sheet(
             isPresented: Binding(
                 get: { store.selectedJournalEntry != nil },
