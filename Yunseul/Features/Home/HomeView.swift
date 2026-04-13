@@ -52,12 +52,7 @@ struct HomeView: View {
                     set: { if !$0 { viewStore.send(.compassModeClose) } }
                 )
             ) {
-                StarCompassView(
-                    homeViewStore: viewStore,
-                    store: Store(initialState: StarCompassFeature.State()) {
-                        StarCompassFeature()
-                    }
-                ) {
+                StarCompassView(viewStore: viewStore) {
                     journalRefreshID = UUID()
                 }
             }

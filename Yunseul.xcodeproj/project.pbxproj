@@ -55,7 +55,6 @@
 		6DEBFEBD2F8C6A6700D258B8 /* StarTrailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEBC2F8C6A6700D258B8 /* StarTrailService.swift */; };
 		6DEBFEBF2F8C6CFC00D258B8 /* StarJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEBE2F8C6CFC00D258B8 /* StarJournalView.swift */; };
 		6DEBFEC12F8CC4A200D258B8 /* StarTrailGlobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEC02F8CC4A200D258B8 /* StarTrailGlobeView.swift */; };
-		6DEBFEC62F8CD6A400D258B8 /* StarCompassFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEC52F8CD6A400D258B8 /* StarCompassFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,7 +100,6 @@
 		6DEBFEBC2F8C6A6700D258B8 /* StarTrailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarTrailService.swift; sourceTree = "<group>"; };
 		6DEBFEBE2F8C6CFC00D258B8 /* StarJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarJournalView.swift; sourceTree = "<group>"; };
 		6DEBFEC02F8CC4A200D258B8 /* StarTrailGlobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarTrailGlobeView.swift; sourceTree = "<group>"; };
-		6DEBFEC52F8CD6A400D258B8 /* StarCompassFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCompassFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,7 +333,6 @@
 			isa = PBXGroup;
 			children = (
 				6DEBFEA32F8AAA0100D258B8 /* StarCompassView.swift */,
-				6DEBFEC52F8CD6A400D258B8 /* StarCompassFeature.swift */,
 			);
 			path = StarCompass;
 			sourceTree = "<group>";
@@ -459,7 +456,6 @@
 				6DEBFE362F88AFFD00D258B8 /* HomeFeature.swift in Sources */,
 				6DEBFE342F88AFF600D258B8 /* OnboardingView.swift in Sources */,
 				6DEBFE502F88B71200D258B8 /* AppView.swift in Sources */,
-				6DEBFEC62F8CD6A400D258B8 /* StarCompassFeature.swift in Sources */,
 				6DEBFE882F88C6A800D258B8 /* Color+Hex.swift in Sources */,
 				6DEBFE3C2F88B01000D258B8 /* TracesView.swift in Sources */,
 				6DEBFE402F88B01C00D258B8 /* SettingsView.swift in Sources */,
