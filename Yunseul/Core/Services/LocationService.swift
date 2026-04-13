@@ -84,7 +84,6 @@ final class LocationService: NSObject {
         }
     }
 
-    // ✅ 별도 시작 함수
     func startUpdatingLocation() {
         manager.startUpdatingLocation()
     }

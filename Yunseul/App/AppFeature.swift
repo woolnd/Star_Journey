@@ -74,7 +74,7 @@ struct AppFeature {
             case .tabSelected(let tab):
                 state.selectedTab = tab
                 return .none
-                
+
             case .splash, .onboarding, .home, .traces, .settings:
                 return .none
             }

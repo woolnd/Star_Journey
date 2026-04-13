@@ -127,6 +127,40 @@ final class AstronomyService {
             return "알 수 없는 곳"
         }
     }
+
+    // MARK: - 방위각 → 방향 변환
+    func directionString(from azimuth: Double) -> String {
+        switch azimuth {
+        case 0..<22.5, 337.5...360: return "북쪽"
+        case 22.5..<67.5:           return "북동쪽"
+        case 67.5..<112.5:          return "동쪽"
+        case 112.5..<157.5:         return "남동쪽"
+        case 157.5..<202.5:         return "남쪽"
+        case 202.5..<247.5:         return "남서쪽"
+        case 247.5..<292.5:         return "서쪽"
+        case 292.5..<337.5:         return "북서쪽"
+        default:                    return "알 수 없음"
+        }
+    }
+
+    // MARK: - 거리 계산 (Haversine)
+    func distanceKm(
+        userLat: Double, userLon: Double,
+        starLat: Double, starLon: Double
+    ) -> Double {
+        let R = 6371.0
+        
+        let dLat = (starLat - userLat) * .pi / 180
+        let dLon = (starLon - userLon) * .pi / 180
+        
+        let a = sin(dLat/2) * sin(dLat/2)
+              + cos(userLat * .pi / 180)
+              * cos(starLat * .pi / 180)
+              * sin(dLon/2) * sin(dLon/2)
+        
+        let c = 2 * atan2(sqrt(a), sqrt(1-a))
+        return R * c
+    }
 }
 
 // MARK: - Double Extension
