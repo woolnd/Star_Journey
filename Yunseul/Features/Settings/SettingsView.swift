@@ -13,6 +13,10 @@ struct SettingsView: View {
     @Bindable var store: Store<SettingsFeature.State, SettingsFeature.Action>
     @State private var isNicknameSheetPresented: Bool = false
     @State private var isBirthDateSheetPresented: Bool = false
+    @State private var showBirthDateWarning: Bool = false
+    
+    @State private var didOpenSettings: Bool = false
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         ZStack {
@@ -34,7 +38,10 @@ struct SettingsView: View {
             nicknameSheet
         }
         .sheet(isPresented: $isBirthDateSheetPresented) {
-            birthDateSheet
+            BirthDateSheetView(
+                store: store,
+                showWarning: $showBirthDateWarning
+            )
         }
         .onChange(of: store.isNicknameSheetPresented) { _, newValue in
             isNicknameSheetPresented = newValue
@@ -47,6 +54,15 @@ struct SettingsView: View {
         }
         .onChange(of: isBirthDateSheetPresented) { _, newValue in
             if !newValue { store.send(.birthDateSheetDismissed) }
+        }
+        .onAppear {
+            store.send(.onAppear)
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            if newPhase == .active && didOpenSettings {
+                store.send(.onAppear)
+                didOpenSettings = false
+            }
         }
     }
     
@@ -155,7 +171,19 @@ struct SettingsView: View {
                     
                     Toggle("", isOn: Binding(
                         get: { store.isNotificationEnabled },
-                        set: { store.send(.notificationToggled($0)) }
+                        set: { newValue in
+                            if newValue {
+                                Task {
+                                    let status = await NotificationService.shared.authorizationStatus()
+                                    if status == .denied {
+                                        didOpenSettings = true
+                                    }
+                                    store.send(.notificationToggled(newValue))
+                                }
+                            } else {
+                                store.send(.notificationToggled(newValue))
+                            }
+                        }
                     ))
                     .tint(Color.Yunseul.starBlue)
                     .labelsHidden()
@@ -193,17 +221,29 @@ struct SettingsView: View {
                 
                 divider
                 
-                HStack {
-                    Text("만든 사람")
-                        .font(.Yunseul.footnote)
-                        .foregroundColor(Color.Yunseul.textTertiary)
-                    Spacer()
-                    Text("wodnd")
-                        .font(.Yunseul.footnote)
-                        .foregroundColor(Color.Yunseul.textPrimary)
+                Button {
+                    if let url = URL(string: "https://github.com/woolnd") {
+                        UIApplication.shared.open(url)
+                    }
+                } label: {
+                    HStack {
+                        Text("만든 사람")
+                            .font(.Yunseul.footnote)
+                            .foregroundColor(Color.Yunseul.textTertiary)
+                        Spacer()
+                        HStack(spacing: 6) {
+                            Text("wodnd")
+                                .font(.Yunseul.footnote)
+                                .foregroundColor(Color.Yunseul.textPrimary)
+                            Image(systemName: "arrow.up.right")
+                                .font(.system(size: 10))
+                                .foregroundColor(Color.Yunseul.textTertiary)
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 14)
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 14)
+                .buttonStyle(.plain)
             }
             .background(Color.Yunseul.surface)
             .cornerRadius(20)
@@ -266,46 +306,88 @@ struct SettingsView: View {
     }
     
     // MARK: - 생일 시트
-    private var birthDateSheet: some View {
-        ZStack {
-            Color.Yunseul.background.ignoresSafeArea()
-            NebulaView()
-            
-            VStack(spacing: 24) {
-                Text("생일 변경")
-                    .font(.Yunseul.subheadline)
-                    .foregroundColor(Color.Yunseul.textPrimary)
-                    .tracking(2)
-                    .padding(.top, 32)
+    struct BirthDateSheetView: View {
+        let store: Store<SettingsFeature.State, SettingsFeature.Action>
+        @Binding var showWarning: Bool
+        
+        var body: some View {
+            ZStack {
+                Color.Yunseul.background.ignoresSafeArea()
+                NebulaView()
                 
-                DatePicker(
-                    "",
-                    selection: Binding(
-                        get: { store.editingBirthDate },
-                        set: { store.send(.editingBirthDateChanged($0)) }
-                    ),
-                    displayedComponents: .date
-                )
-                .datePickerStyle(.wheel)
-                .labelsHidden()
-                .environment(\.locale, Locale(identifier: "ko_KR"))
-                
-                Button {
-                    store.send(.saveBirthDate)
-                } label: {
-                    Text("저장")
-                        .font(.Yunseul.callout)
-                        .foregroundColor(Color.Yunseul.starBlue)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
-                        .background(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(Color.Yunseul.starBlue.opacity(0.3), lineWidth: 0.5)
-                        )
+                VStack(spacing: 24) {
+                    Text("생일 변경")
+                        .font(.Yunseul.subheadline)
+                        .foregroundColor(Color.Yunseul.textPrimary)
+                        .tracking(2)
+                        .padding(.top, 32)
+                    
+                    HStack(spacing: 12) {
+                        Image(systemName: "info.circle.fill")
+                            .font(.system(size: 14))
+                            .foregroundColor(Color.Yunseul.starBlue)
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("별의 궤적이 새로 그려져요")
+                                .font(.Yunseul.footnote)
+                                .foregroundColor(Color.Yunseul.textPrimary)
+                            Text("생일이 바뀌면 수호성도 바뀌어서\n지금까지의 궤적이 새 별자리 기준으로 다시 계산돼요.\n별빛 일기는 그대로 유지돼요.")
+                                .font(.Yunseul.captionLight)
+                                .foregroundColor(Color.Yunseul.textTertiary)
+                                .lineSpacing(3)
+                        }
+                    }
+                    .padding(14)
+                    .background(Color.Yunseul.starBlue.opacity(0.06))
+                    .cornerRadius(16)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color.Yunseul.starBlue.opacity(0.2), lineWidth: 0.5)
+                    )
+                    .padding(.horizontal, 24)
+                    
+                    DatePicker(
+                        "",
+                        selection: Binding(
+                            get: { store.state.editingBirthDate },
+                            set: { store.send(.editingBirthDateChanged($0)) }
+                        ),
+                        displayedComponents: .date
+                    )
+                    .datePickerStyle(.wheel)
+                    .labelsHidden()
+                    .environment(\.locale, Locale(identifier: "ko_KR"))
+                    .environment(\.colorScheme, .light)
+                    
+                    Button {
+                        showWarning = true
+                    } label: {
+                        Text("저장")
+                            .font(.Yunseul.callout)
+                            .foregroundColor(Color.Yunseul.starBlue)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 14)
+                            .background(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke(Color.Yunseul.starBlue.opacity(0.3), lineWidth: 0.5)
+                            )
+                    }
+                    .padding(.horizontal, 24)
+                    
+                    Spacer()
                 }
-                .padding(.horizontal, 24)
-                
-                Spacer()
+                .confirmationDialog(
+                    "별의 궤적이 새로 그려져요",
+                    isPresented: $showWarning,
+                    titleVisibility: .visible
+                ) {
+                    Button("확인, 저장할게요") {
+                        store.send(.saveBirthDate)
+                    }
+                    Button("취소", role: .cancel) {}
+                } message: {
+                    Text("수호성이 바뀌면서 지금까지의 궤적이 새 별자리 기준으로 다시 계산돼요. 별빛 일기는 그대로 유지돼요.")
+                }
             }
         }
     }

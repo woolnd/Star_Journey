@@ -8,14 +8,33 @@
 import ComposableArchitecture
 import UserNotifications
 import Foundation
+import UIKit
 
 @Reducer
 struct SettingsFeature {
     
     @ObservableState
     struct State: Equatable {
-        var nickname: String = UserDefaults.standard.string(forKey: UserDefaults.Keys.nickname) ?? ""
-        var birthDate: Date = UserDefaults.standard.object(forKey: UserDefaults.Keys.birthDate) as? Date ?? Date()
+        var nickname: String = {
+            if let saved = UserDefaults.standard.string(forKey: UserDefaults.Keys.nickname),
+               !saved.isEmpty { return saved }
+            return (try? CoreDataService.shared.fetchBirthStar())?.nickname ?? ""
+        }()
+        
+        var birthDate: Date = {
+            if let saved = UserDefaults.standard.object(forKey: UserDefaults.Keys.birthDate) as? Date {
+                return saved
+            }
+            return (try? CoreDataService.shared.fetchBirthStar())?.birthDate ?? Date()
+        }()
+        
+        var constellation: Constellation = {
+            if let name = UserDefaults.standard.string(forKey: UserDefaults.Keys.constellation),
+               let c = Constellation(rawValue: name) { return c }
+            if let name = (try? CoreDataService.shared.fetchBirthStar())?.constellation,
+               let c = Constellation(rawValue: name) { return c }
+            return .aries
+        }()
         var isNotificationEnabled: Bool = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNotificationEnabled)
         
         // 시트 제어
@@ -25,10 +44,6 @@ struct SettingsFeature {
         // 임시 편집값
         var editingNickname: String = ""
         var editingBirthDate: Date = Date()
-        var constellation: Constellation = {
-            let name = UserDefaults.standard.string(forKey: UserDefaults.Keys.constellation) ?? "양자리"
-            return Constellation(rawValue: name) ?? .aries
-        }()
     }
     
     enum Action: Equatable {
@@ -49,6 +64,9 @@ struct SettingsFeature {
         // 알림 토글
         case notificationToggled(Bool)
         case notificationPermissionResponse(Bool)
+        
+        case onAppear
+        case notificationStatusChecked(Bool)
     }
     
     var body: some Reducer<State, Action> {
@@ -101,21 +119,6 @@ struct SettingsFeature {
                 UserDefaults.standard.set(constellation.rawValue, forKey: UserDefaults.Keys.constellation)
                 return .none
                 
-                // MARK: - 알림 토글
-            case let .notificationToggled(isEnabled):
-                if isEnabled {
-                    return .run { send in
-                        let granted = await NotificationService.shared.requestAuthorization()
-                        await send(.notificationPermissionResponse(granted))
-                    }
-                } else {
-                    state.isNotificationEnabled = false
-                    UserDefaults.standard.set(false, forKey: UserDefaults.Keys.isNotificationEnabled)
-                    
-                    NotificationService.shared.removeAllNotifications()
-                    return .none
-                }
-                
             case let .notificationPermissionResponse(granted):
                 state.isNotificationEnabled = granted
                 UserDefaults.standard.set(granted, forKey: UserDefaults.Keys.isNotificationEnabled)
@@ -130,6 +133,49 @@ struct SettingsFeature {
                     )
                 }
                 return .none
+                
+            case .onAppear:
+                return .run { send in
+                    let status = await NotificationService.shared.authorizationStatus()
+                    let systemEnabled = status == .authorized || status == .provisional
+                    await send(.notificationStatusChecked(systemEnabled))
+                }
+                
+            case let .notificationStatusChecked(isEnabled):
+                if !isEnabled {
+                    state.isNotificationEnabled = false
+                    UserDefaults.standard.set(false, forKey: UserDefaults.Keys.isNotificationEnabled)
+                }
+                return .none
+                
+            case let .notificationToggled(isEnabled):
+                if isEnabled {
+                    return .run { send in
+                        let status = await NotificationService.shared.authorizationStatus()
+                        
+                        switch status {
+                        case .authorized, .provisional:
+                            await send(.notificationPermissionResponse(true))
+                            
+                        case .denied:
+                            await MainActor.run {
+                                if let url = URL(string: UIApplication.openSettingsURLString) {
+                                    UIApplication.shared.open(url)
+                                }
+                            }
+                            await send(.notificationPermissionResponse(false))
+                            
+                        default:
+                            let granted = await NotificationService.shared.requestAuthorization()
+                            await send(.notificationPermissionResponse(granted))
+                        }
+                    }
+                } else {
+                    state.isNotificationEnabled = false
+                    UserDefaults.standard.set(false, forKey: UserDefaults.Keys.isNotificationEnabled)
+                    NotificationService.shared.removeAllNotifications()
+                    return .none
+                }
             }
         }
     }

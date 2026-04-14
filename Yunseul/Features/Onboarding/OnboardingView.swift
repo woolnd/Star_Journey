@@ -232,9 +232,30 @@ struct ConstellationResultView: View {
         VStack(spacing: 0) {
             Spacer()
             
-            ConstellationShapeView(constellation: viewStore.constellation)
-                .opacity(starOpacity)
-                .padding(.bottom, 16)
+            ZStack {
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                Color.Yunseul.starBlue.opacity(0.18),
+                                Color.Yunseul.starBlue.opacity(0.06),
+                                Color.clear
+                            ],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: 120
+                        )
+                    )
+                    .frame(width: 240, height: 240)
+                
+                Circle()
+                    .stroke(Color.Yunseul.starBlue.opacity(0.15), lineWidth: 0.5)
+                    .frame(width: 200, height: 200)
+                
+                ConstellationShapeView(constellation: viewStore.constellation)
+            }
+            .opacity(starOpacity)
+            .padding(.bottom, 16)
             
             VStack(spacing: 8) {
                 Text(viewStore.constellation.rawValue)

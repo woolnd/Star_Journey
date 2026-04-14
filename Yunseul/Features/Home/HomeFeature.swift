@@ -119,10 +119,15 @@ struct HomeFeature {
                         
                         let granted = await NotificationService.shared.requestAuthorization()
                         if granted {
-                            NotificationService.shared.scheduleDailyStarNotification(
-                                constellation: constellation,
-                                nickname: nickname
+                            let userEnabled = UserDefaults.standard.bool(
+                                forKey: UserDefaults.Keys.isNotificationEnabled
                             )
+                            if userEnabled {
+                                NotificationService.shared.scheduleDailyStarNotification(
+                                    constellation: constellation,
+                                    nickname: nickname
+                                )
+                            }
                         }
                     },
                     .run { _ in motionService.start() },

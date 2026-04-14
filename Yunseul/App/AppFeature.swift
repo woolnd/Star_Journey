@@ -62,10 +62,11 @@ struct AppFeature {
                 
             case .onboarding(.onboardingCompleted):
                 state.isOnboardingCompleted = true
-                UserDefaults.standard.set(
-                    true,
-                    forKey: UserDefaults.Keys.isOnboardingCompleted
-                )
+                UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isOnboardingCompleted)
+            
+                state.settings.nickname = state.onboarding.nickname
+                state.settings.birthDate = state.onboarding.birthDate
+                state.settings.constellation = state.onboarding.constellation
                 return .none
                 
             case .onboardingCompleted:

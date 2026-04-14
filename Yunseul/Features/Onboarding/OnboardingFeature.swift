@@ -83,7 +83,7 @@ struct OnboardingFeature {
                 let nickname = state.nickname
                 let birthDate = state.birthDate
                 let constellation = state.constellation.rawValue
-                
+
                 return .run { send in
                     try CoreDataService.shared.saveBirthStar(
                         nickname: nickname,
@@ -91,6 +91,10 @@ struct OnboardingFeature {
                         constellation: constellation
                     )
                     UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isOnboardingCompleted)
+                    UserDefaults.standard.set(nickname, forKey: UserDefaults.Keys.nickname)
+                    UserDefaults.standard.set(birthDate, forKey: UserDefaults.Keys.birthDate)
+                    UserDefaults.standard.set(constellation, forKey: UserDefaults.Keys.constellation)
+                    
                     await send(.saveCompleted)
                 }
                 
