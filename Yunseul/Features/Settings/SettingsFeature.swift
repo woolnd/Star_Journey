@@ -145,6 +145,9 @@ struct SettingsFeature {
                 if !isEnabled {
                     state.isNotificationEnabled = false
                     UserDefaults.standard.set(false, forKey: UserDefaults.Keys.isNotificationEnabled)
+                } else {
+                    state.isNotificationEnabled = true
+                    UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isNotificationEnabled)
                 }
                 return .none
                 

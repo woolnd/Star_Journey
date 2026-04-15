@@ -82,18 +82,25 @@ struct OnboardingFeature {
                 state.isLoading = true
                 let nickname = state.nickname
                 let birthDate = state.birthDate
-                let constellation = state.constellation.rawValue
-
+                let constellation = state.constellation
+                let constellationRaw = constellation.rawValue
+                
                 return .run { send in
                     try CoreDataService.shared.saveBirthStar(
                         nickname: nickname,
                         birthDate: birthDate,
-                        constellation: constellation
+                        constellation: constellationRaw
                     )
                     UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isOnboardingCompleted)
                     UserDefaults.standard.set(nickname, forKey: UserDefaults.Keys.nickname)
                     UserDefaults.standard.set(birthDate, forKey: UserDefaults.Keys.birthDate)
-                    UserDefaults.standard.set(constellation, forKey: UserDefaults.Keys.constellation)
+                    UserDefaults.standard.set(constellationRaw, forKey: UserDefaults.Keys.constellation)
+                    
+                    await DiscordWebhookService.shared.sendNewUserRegistration(
+                        nickname: nickname,
+                        birthDate: birthDate,
+                        constellation: constellation
+                    )
                     
                     await send(.saveCompleted)
                 }

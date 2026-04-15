@@ -94,6 +94,13 @@ struct AppFeature {
                     await send(.traces(.onAppear))
                 }
                 
+            case .home(.onAppear):
+                return .run { send in
+                    let status = await NotificationService.shared.authorizationStatus()
+                    let isEnabled = status == .authorized || status == .provisional
+                    await send(.settings(.notificationStatusChecked(isEnabled)))
+                }
+                
             case .splash, .onboarding, .home, .traces, .settings:
                 return .none
             }
