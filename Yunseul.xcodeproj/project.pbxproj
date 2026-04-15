@@ -61,6 +61,7 @@
 		6DEBFED32F8F0E6000D258B8 /* DiscordWebhookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFED22F8F0E6000D258B8 /* DiscordWebhookService.swift */; };
 		6DEBFED52F8F0F6400D258B8 /* GistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFED42F8F0F6400D258B8 /* GistService.swift */; };
 		6DEBFED72F8F13F900D258B8 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFED62F8F13F900D258B8 /* Secrets.swift */; };
+		6DEBFED92F8F154000D258B8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFED82F8F154000D258B8 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		6DEBFED22F8F0E6000D258B8 /* DiscordWebhookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordWebhookService.swift; sourceTree = "<group>"; };
 		6DEBFED42F8F0F6400D258B8 /* GistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistService.swift; sourceTree = "<group>"; };
 		6DEBFED62F8F13F900D258B8 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		6DEBFED82F8F154000D258B8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				6DEBFE232F88AF0E00D258B8 /* Resources */,
 				6DEBFE192F88AEDC00D258B8 /* Assets.xcassets */,
 				6DEBFED62F8F13F900D258B8 /* Secrets.swift */,
+				6DEBFED82F8F154000D258B8 /* .gitignore */,
 			);
 			path = Yunseul;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				6DEBFE482F88B5A400D258B8 /* Localizable.strings in Resources */,
 				6DEBFEB52F8BECDC00D258B8 /* SCDream5.otf in Resources */,
 				6DEBFECE2F8E421300D258B8 /* InfoPlist.strings in Resources */,
+				6DEBFED92F8F154000D258B8 /* .gitignore in Resources */,
 				6DEBFECB2F8E420E00D258B8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
