@@ -39,7 +39,7 @@ final class DiscordWebhookService {
                         ["name": "생일", "value": birthDateString, "inline": true],
                         ["name": "수호성", "value": "\(constellation.rawValue) (\(constellation.latinName))", "inline": true]
                     ],
-                    "footer": ["text": "윤슬 Yunseul · 누적 \(count)명"],
+                    "footer": ["text": "윤슬 Yunseul"],
                     "timestamp": ISO8601DateFormatter().string(from: Date())
                 ]
             ]
