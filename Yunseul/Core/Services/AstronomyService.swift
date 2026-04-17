@@ -102,7 +102,7 @@ final class AstronomyService {
     func regionName(latitude: Double, longitude: Double) async -> String {
         let location = CLLocation(latitude: latitude, longitude: longitude)
         let geocoder = CLGeocoder()
-        let locale = Locale(identifier: "ko_KR")
+        let locale = Locale.current
         
         do {
             let placemarks = try await geocoder.reverseGeocodeLocation(location, preferredLocale: locale)

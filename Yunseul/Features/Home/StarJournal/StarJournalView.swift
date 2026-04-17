@@ -179,7 +179,7 @@ struct StarJournalView: View {
     private func monthString(from date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM"
-        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.locale = Locale.current
         return formatter.string(from: date)
     }
 }

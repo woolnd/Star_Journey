@@ -85,3 +85,28 @@
 "traces.summary.direction" = "Star direction";
 "traces.summary.distance" = "Distance to star";
 
+// MARK: - Setting
+"settings.title" = "Settings";
+"settings.subtitle" = "Manage your connection with the star";
+"settings.section.profile" = "✦ Profile";
+"settings.section.notification" = "✦ Notifications";
+"settings.section.appinfo" = "✦ App Info";
+"settings.profile.nickname" = "Nickname";
+"settings.profile.nickname.empty" = "Not set";
+"settings.profile.birthday" = "Birthday";
+"settings.profile.guardian" = "Guardian Star";
+"settings.notification.title" = "Nightly starlight alert at 9PM";
+"settings.notification.subtitle" = "We'll let you know when your star is traveling the sky";
+"settings.appinfo.version" = "Version";
+"settings.appinfo.developer" = "Developer";
+"settings.nickname.sheet.title" = "Change Nickname";
+"settings.nickname.sheet.placeholder" = "Enter your nickname";
+"settings.nickname.sheet.save" = "Save";
+"settings.birthdate.sheet.title" = "Change Birthday";
+"settings.birthdate.warning.title" = "Your star trail will be redrawn";
+"settings.birthdate.warning.info.title" = "Your star trail will be redrawn";
+"settings.birthdate.warning.info.body" = "Changing your birthday changes your guardian star,\nso your trail will be recalculated.\nYour starlight diary will remain intact.";
+"settings.birthdate.warning.confirm" = "Got it, save";
+"settings.birthdate.warning.cancel" = "Cancel";
+"settings.birthdate.warning.message" = "Your trail will be recalculated based on your new guardian star. Your diary entries will remain intact.";
+"settings.birthdate.sheet.save" = "Save";

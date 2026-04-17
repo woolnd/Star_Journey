@@ -84,3 +84,29 @@
 "traces.summary.my.place" = "내가 있던 곳";
 "traces.summary.direction" = "별의 방향";
 "traces.summary.distance" = "별까지의 거리";
+
+// MARK: - Setting
+"settings.title" = "설정";
+"settings.subtitle" = "별과의 연결을 관리해요";
+"settings.section.profile" = "✦ 프로필";
+"settings.section.notification" = "✦ 알림";
+"settings.section.appinfo" = "✦ 앱 정보";
+"settings.profile.nickname" = "닉네임";
+"settings.profile.nickname.empty" = "미설정";
+"settings.profile.birthday" = "생일";
+"settings.profile.guardian" = "수호성";
+"settings.notification.title" = "매일 밤 9시 별빛 알림";
+"settings.notification.subtitle" = "수호성이 하늘을 여행하는 시간을 알려드려요";
+"settings.appinfo.version" = "버전";
+"settings.appinfo.developer" = "만든 사람";
+"settings.nickname.sheet.title" = "닉네임 변경";
+"settings.nickname.sheet.placeholder" = "닉네임을 입력해주세요";
+"settings.nickname.sheet.save" = "저장";
+"settings.birthdate.sheet.title" = "생일 변경";
+"settings.birthdate.warning.title" = "별의 궤적이 새로 그려져요";
+"settings.birthdate.warning.info.title" = "별의 궤적이 새로 그려져요";
+"settings.birthdate.warning.info.body" = "생일이 바뀌면 수호성도 바뀌어서\n지금까지의 궤적이 새 별자리 기준으로 다시 계산돼요.\n별빛 일기는 그대로 유지돼요.";
+"settings.birthdate.warning.confirm" = "확인, 저장할게요";
+"settings.birthdate.warning.cancel" = "취소";
+"settings.birthdate.warning.message" = "수호성이 바뀌면서 지금까지의 궤적이 새 별자리 기준으로 다시 계산돼요. 별빛 일기는 그대로 유지돼요.";
+"settings.birthdate.sheet.save" = "저장";

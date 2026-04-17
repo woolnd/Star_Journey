@@ -84,3 +84,29 @@
 "traces.summary.my.place" = "私がいた場所";
 "traces.summary.direction" = "星の方向";
 "traces.summary.distance" = "星までの距離";
+
+// MARK: - Setting
+"settings.title" = "設定";
+"settings.subtitle" = "星との繋がりを管理する";
+"settings.section.profile" = "✦ プロフィール";
+"settings.section.notification" = "✦ 通知";
+"settings.section.appinfo" = "✦ アプリ情報";
+"settings.profile.nickname" = "ニックネーム";
+"settings.profile.nickname.empty" = "未設定";
+"settings.profile.birthday" = "誕生日";
+"settings.profile.guardian" = "守護星";
+"settings.notification.title" = "毎晩9時の星の光通知";
+"settings.notification.subtitle" = "守護星が空を旅する時間をお知らせします";
+"settings.appinfo.version" = "バージョン";
+"settings.appinfo.developer" = "開発者";
+"settings.nickname.sheet.title" = "ニックネーム変更";
+"settings.nickname.sheet.placeholder" = "ニックネームを入力してください";
+"settings.nickname.sheet.save" = "保存";
+"settings.birthdate.sheet.title" = "誕生日変更";
+"settings.birthdate.warning.title" = "星の軌跡が新たに描かれます";
+"settings.birthdate.warning.info.title" = "星の軌跡が新たに描かれます";
+"settings.birthdate.warning.info.body" = "誕生日が変わると守護星も変わり、\nこれまでの軌跡が新しい星座基準で再計算されます。\n星の光日記はそのまま保持されます。";
+"settings.birthdate.warning.confirm" = "確認、保存します";
+"settings.birthdate.warning.cancel" = "キャンセル";
+"settings.birthdate.warning.message" = "新しい守護星に基づいて軌跡が再計算されます。日記はそのまま保持されます。";
+"settings.birthdate.sheet.save" = "保存";

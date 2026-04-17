@@ -573,8 +573,12 @@ struct TracesView: View {
     private func groupByMonth(entries: [StarTrailEntry]) -> [String: [StarTrailEntry]] {
         var grouped: [String: [StarTrailEntry]] = [:]
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월"
-        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = DateFormatter.dateFormat(
+            fromTemplate: "yyyyMM",
+            options: 0,
+            locale: Locale.current
+        )
+        formatter.locale = Locale.current
         
         for entry in entries {
             let key = formatter.string(from: entry.date ?? Date())
@@ -592,7 +596,11 @@ struct TracesView: View {
     // MARK: - 날짜 포맷
     private func monthYearString(from date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월"
+        formatter.dateFormat = DateFormatter.dateFormat(
+            fromTemplate: "yyyyMM",
+            options: 0,
+            locale: Locale.current
+        )
         formatter.locale = Locale.current
         return formatter.string(from: date)
     }
