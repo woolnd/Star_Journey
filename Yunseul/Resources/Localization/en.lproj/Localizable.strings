@@ -10,3 +10,17 @@
 "splash.title" = "Yunseul";
 "splash.tagline1" = "Your star, at this very moment";
 "splash.tagline2" = "Where on Earth is it shining?";
+
+// MARK: - Onboarding
+"onboarding.nickname.title1" = "What should we";
+"onboarding.nickname.title2" = "call you?";
+"onboarding.nickname.subtitle" = "The name your star will remember you by";
+"onboarding.nickname.placeholder" = "Enter your nickname";
+"onboarding.nickname.next" = "Next";
+
+"onboarding.birthdate.title2" = "'s";
+"onboarding.birthdate.title3" = "When were you born?";
+"onboarding.birthdate.subtitle" = "We need this to find your star";
+"onboarding.birthdate.next" = "Find my star";
+
+"onboarding.result.begin" = "Follow the starlight";

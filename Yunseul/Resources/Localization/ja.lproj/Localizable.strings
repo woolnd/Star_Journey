@@ -10,3 +10,17 @@
 "splash.title" = "ユンスル";
 "splash.tagline1" = "あなたの星は今この瞬間";
 "splash.tagline2" = "地球のどこを照らしているのでしょう？";
+
+// MARK: - Onboarding
+"onboarding.nickname.title1" = "なんとお呼びすれば";
+"onboarding.nickname.title2" = "いいですか？";
+"onboarding.nickname.subtitle" = "星があなたを覚える名前です";
+"onboarding.nickname.placeholder" = "ニックネームを入力してください";
+"onboarding.nickname.next" = "次へ";
+
+"onboarding.birthdate.title2" = "さんの";
+"onboarding.birthdate.title3" = "生まれた日はいつですか？";
+"onboarding.birthdate.subtitle" = "星座を見つけるために必要です";
+"onboarding.birthdate.next" = "星座を探す";
+
+"onboarding.result.begin" = "星の光を辿る";

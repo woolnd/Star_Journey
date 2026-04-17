@@ -78,17 +78,17 @@ struct NicknameStepView: View {
                 .padding(.bottom, 32)
             
             VStack(spacing: 10) {
-                Text("당신을 뭐라고")
+                Text(String(localized: "onboarding.nickname.title1"))
                     .font(.Yunseul.constellationName)
                     .foregroundColor(Color.Yunseul.textPrimary)
                 
-                Text("불러드릴까요?")
+                Text(String(localized: "onboarding.nickname.title2"))
                     .font(.Yunseul.constellationName)
                     .foregroundColor(Color.Yunseul.textPrimary)
             }
             .padding(.bottom, 12)
             
-            Text("별이 당신을 기억할 이름이에요")
+            Text(String(localized: "onboarding.nickname.subtitle"))
                 .font(.Yunseul.briefingSmall)
                 .foregroundColor(Color.Yunseul.textSecondary)
                 .padding(.bottom, 52)
@@ -103,7 +103,7 @@ struct NicknameStepView: View {
                 .multilineTextAlignment(.center)
                 .focused($isFocused)
                 .placeholder(when: viewStore.nickname.isEmpty) {
-                    Text("닉네임을 입력해주세요")
+                    Text(String(localized: "onboarding.nickname.placeholder"))
                         .font(.Yunseul.subheadline)
                         .foregroundColor(Color.Yunseul.textTertiary)
                 }
@@ -122,7 +122,7 @@ struct NicknameStepView: View {
                 viewStore.send(.nicknameNextTapped)
                 isFocused = false
             } label: {
-                Text("다음")
+                Text(String(localized: "onboarding.nickname.next"))
                     .font(.Yunseul.callout)
                     .foregroundColor(viewStore.nickname.isEmpty
                                      ? Color.Yunseul.textTertiary
@@ -165,17 +165,17 @@ struct BirthDateStepView: View {
                 .padding(.bottom, 32)
             
             VStack(spacing: 0) {
-                Text("\(viewStore.nickname)님의")
-                    .font(.Yunseul.constellationName)    
+                Text("\(viewStore.nickname)\(String(localized: "onboarding.birthdate.title2"))")
+                    .font(.Yunseul.constellationName)
                     .foregroundColor(Color.Yunseul.textPrimary)
                 
-                Text("태어난 날은요?")
+                Text(String(localized: "onboarding.birthdate.title3"))
                     .font(.Yunseul.constellationName)
                     .foregroundColor(Color.Yunseul.textPrimary)
             }
             .padding(.bottom, 12)
             
-            Text("별자리를 찾기 위해 필요해요")
+            Text(String(localized: "onboarding.birthdate.subtitle"))
                 .font(.Yunseul.briefingSmall)
                 .foregroundColor(Color.Yunseul.textSecondary)
                 .padding(.bottom, 48)
@@ -197,7 +197,7 @@ struct BirthDateStepView: View {
             Button {
                 viewStore.send(.birthDateNextTapped)
             } label: {
-                Text("내 별자리 찾기")
+                Text(String(localized: "onboarding.birthdate.next"))
                     .font(.Yunseul.callout)
                     .foregroundColor(Color.Yunseul.starBlue)
                     .tracking(4)
@@ -294,7 +294,7 @@ struct ConstellationResultView: View {
                         ProgressView()
                             .tint(Color.Yunseul.starBlue)
                     } else {
-                        Text("별빛을 따라가기")
+                        Text(String(localized: "onboarding.result.begin"))
                             .font(.Yunseul.callout)       
                             .foregroundColor(Color.Yunseul.starBlue)
                             .tracking(4)

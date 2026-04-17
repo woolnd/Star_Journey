@@ -10,3 +10,17 @@
 "splash.title" = "윤슬";
 "splash.tagline1" = "당신의 별은 지금 이 순간";
 "splash.tagline2" = "지구 어디를 비추고 있을까요?";
+
+// MARK: - Onboarding
+"onboarding.nickname.title1" = "당신을 뭐라고";
+"onboarding.nickname.title2" = "불러드릴까요?";
+"onboarding.nickname.subtitle" = "별이 당신을 기억할 이름이에요";
+"onboarding.nickname.placeholder" = "닉네임을 입력해주세요";
+"onboarding.nickname.next" = "다음";
+
+"onboarding.birthdate.title2" = "님의";
+"onboarding.birthdate.title3" = "태어난 날은요?";
+"onboarding.birthdate.subtitle" = "별자리를 찾기 위해 필요해요";
+"onboarding.birthdate.next" = "내 별자리 찾기";
+
+"onboarding.result.begin" = "별빛을 따라가기";
