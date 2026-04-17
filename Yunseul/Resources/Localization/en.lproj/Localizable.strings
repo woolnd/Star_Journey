@@ -35,3 +35,35 @@
 "home.button.camera" = "Shoot the sky with your star";
 "home.story.title" = "My Star Story";
 "home.star.annotation" = "✦ Your Star";
+
+// MARK: - StarRelation
+"home.relation.title" = "Star Relations";
+
+// MARK: - StarCompass
+"compass.header" = "Shoot the sky with your star";
+"compass.save.success" = "Saved to album";
+"compass.save.button" = "Save to Album";
+"compass.save.saving" = "Saving...";
+"compass.overwrite.title" = "Today's starlight is already recorded";
+"compass.overwrite.message" = "What would you like to do?";
+"compass.overwrite.imageonly" = "Save image only";
+"compass.overwrite.diary" = "Overwrite diary";
+"compass.overwrite.cancel" = "Cancel";
+"compass.watermark" = "✦ YUNSEUL";
+
+// MARK: - StarJournal
+"journal.title" = "Starlight Diary";
+"journal.count" = "%d records";
+"journal.empty" = "Shoot the sky with your star\nand it will be recorded here";
+"journal.detail.star.place" = "Where the star was shining";
+"journal.detail.my.place" = "Where I was";
+"journal.detail.direction" = "Star direction";
+"journal.detail.distance" = "Distance to star";
+"journal.detail.memo.title" = "One-line impression";
+"journal.detail.memo.placeholder" = "How was today's starlight?";
+"journal.detail.save" = "Save";
+"journal.detail.delete" = "Delete diary";
+"journal.delete.title" = "Delete this diary?";
+"journal.delete.confirm" = "Delete";
+"journal.delete.cancel" = "Cancel";
+"journal.delete.message" = "Deleted diaries cannot be recovered";

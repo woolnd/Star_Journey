@@ -35,3 +35,35 @@
 "home.button.camera" = "星と一緒に空を撮る";
 "home.story.title" = "私の星の物語";
 "home.star.annotation" = "✦ あなたの星";
+
+// MARK: - StarRelation
+"home.relation.title" = "星座関係図";
+
+// MARK: - StarCompass
+"compass.header" = "星と一緒に空を撮る";
+"compass.save.success" = "アルバムに保存しました";
+"compass.save.button" = "アルバム保存";
+"compass.save.saving" = "保存中...";
+"compass.overwrite.title" = "今日の星の光はすでに記録されています";
+"compass.overwrite.message" = "どうしますか？";
+"compass.overwrite.imageonly" = "画像のみ保存";
+"compass.overwrite.diary" = "日記を上書き";
+"compass.overwrite.cancel" = "キャンセル";
+"compass.watermark" = "✦ ユンスル";
+
+// MARK: - StarJournal
+"journal.title" = "星の光日記";
+"journal.count" = "%d件の記録";
+"journal.empty" = "星と一緒に空を撮ると\nここに記録されます";
+"journal.detail.star.place" = "星が照らしていた場所";
+"journal.detail.my.place" = "私がいた場所";
+"journal.detail.direction" = "星の方向";
+"journal.detail.distance" = "星までの距離";
+"journal.detail.memo.title" = "一言感想";
+"journal.detail.memo.placeholder" = "今日の星の光はどうでしたか？";
+"journal.detail.save" = "保存";
+"journal.detail.delete" = "日記を削除";
+"journal.delete.title" = "この日記を削除しますか？";
+"journal.delete.confirm" = "削除";
+"journal.delete.cancel" = "キャンセル";
+"journal.delete.message" = "削除した日記は復元できません";

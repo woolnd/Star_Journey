@@ -129,25 +129,25 @@ struct StarCompassView: View {
             withAnimation(.easeIn(duration: 1.2).delay(0.5)) { textOpacity = 1 }
         }
         .confirmationDialog(
-            "오늘의 별빛이 이미 기록됐어요",
+            String(localized: "compass.overwrite.title"),
             isPresented: $showOverwriteOptions,
             titleVisibility: .visible
         ) {
-            Button("이미지만 저장") {
+            Button(String(localized: "compass.overwrite.imageonly")) {
                 if let image = capturedImage {
                     saveToAlbumOnly(image: image)
                 }
             }
-            Button("일기 덮어쓰기") {
+            Button(String(localized: "compass.overwrite.diary")) {
                 if let image = capturedImage {
                     saveFinalImage(image, overwrite: true)
                 }
             }
-            Button("취소", role: .cancel) {
+            Button(String(localized: "compass.overwrite.cancel"), role: .cancel) {
                 capturedImage = nil
             }
         } message: {
-            Text("어떻게 할까요?")
+            Text(String(localized: "compass.overwrite.message"))
         }
     }
     
@@ -204,7 +204,7 @@ struct StarCompassView: View {
     // MARK: - 헤더
     private var headerSection: some View {
         ZStack {
-            Text("별과 함께 하늘 찍기")
+            Text(String(localized: "compass.header"))
                 .font(.Yunseul.callout)
                 .foregroundColor(.white)
                 .tracking(2)
@@ -238,7 +238,7 @@ struct StarCompassView: View {
                 HStack(spacing: 6) {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(Color.Yunseul.liveGreen)
-                    Text("앨범에 저장됐어요")
+                    Text(String(localized: "compass.save.success"))
                         .font(.Yunseul.footnote)
                         .foregroundColor(.white)
                 }
@@ -255,7 +255,9 @@ struct StarCompassView: View {
                         Image(systemName: "camera.fill")
                             .font(.system(size: 14))
                     }
-                    Text(isSaving ? "저장 중..." : "앨범 저장")
+                    Text(isSaving
+                        ? String(localized: "compass.save.saving")
+                        : String(localized: "compass.save.button"))
                         .font(.Yunseul.callout)
                         .tracking(1)
                 }
@@ -532,7 +534,7 @@ struct OverlaySnapshotView: View {
                         .foregroundColor(.white.opacity(0.5))
                         .tracking(2)
                     
-                    Text("✦ YUNSEUL")
+                    Text(String(localized: "compass.watermark"))
                         .font(.Yunseul.captionLight)
                         .foregroundColor(.white.opacity(0.4))
                         .tracking(4)

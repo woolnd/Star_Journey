@@ -16,7 +16,7 @@ struct StarRelationView: View {
             
             // 섹션 헤더
             HStack {
-                Text("별자리 관계도")
+                Text(String(localized: "home.relation.title"))
                     .font(.Yunseul.caption)
                     .foregroundColor(Color.Yunseul.textTertiary)
                     .tracking(2)

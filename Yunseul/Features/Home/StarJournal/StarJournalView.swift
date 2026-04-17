@@ -18,14 +18,14 @@ struct StarJournalView: View {
         VStack(alignment: .leading, spacing: 16) {
             
             HStack {
-                Text("별빛 일기")
+                Text(String(localized: "journal.title"))
                     .font(.Yunseul.caption)
                     .foregroundColor(Color.Yunseul.textTertiary)
                     .tracking(2)
                 
                 Spacer()
                 
-                Text("\(entries.count)개의 기록")
+                Text(String(localized: "journal.count", defaultValue: "\(entries.count)개의 기록"))
                     .font(.Yunseul.captionLight)
                     .foregroundColor(Color.Yunseul.textTertiary)
             }
@@ -57,7 +57,7 @@ struct StarJournalView: View {
                 .font(.system(size: 28))
                 .foregroundColor(Color.Yunseul.textTertiary.opacity(0.5))
             
-            Text("별과 함께 하늘을 찍으면\n여기에 기록돼요")
+            Text(String(localized: "journal.empty"))
                 .font(.Yunseul.briefingSmall)
                 .foregroundColor(Color.Yunseul.textTertiary)
                 .multilineTextAlignment(.center)
@@ -226,19 +226,19 @@ struct StarJournalDetailView: View {
             memo = entry.memo ?? ""
         }
         .confirmationDialog(
-            "이 일기를 삭제할까요?",
+            String(localized: "journal.delete.title"),
             isPresented: $showDeleteConfirm,
             titleVisibility: .visible
         ) {
-            Button("삭제", role: .destructive) {
+            Button(String(localized: "journal.delete.confirm"), role: .destructive) {
                 deleteEntry()
             }
 
-            Button("취소") {
+            Button(String(localized: "journal.delete.cancel")) {
                 showDeleteConfirm = false
             }
         } message: {
-            Text("삭제한 일기는 복구할 수 없어요")
+            Text(String(localized: "journal.delete.message"))
         }
     }
     
@@ -320,25 +320,25 @@ struct StarJournalDetailView: View {
         VStack(spacing: 10) {
             dataCard(
                 icon: "sparkles",
-                title: "별이 비추던 곳",
+                title: String(localized: "journal.detail.star.place"),
                 value: entry.starRegionName ?? ""
             )
             
             dataCard(
                 icon: "location.fill",
-                title: "내가 있던 곳",
+                title: String(localized: "journal.detail.my.place"),
                 value: entry.userRegionName ?? ""
             )
             
             dataCard(
                 icon: "location.north.fill",
-                title: "별의 방향",
+                title: String(localized: "journal.detail.direction"),
                 value: "\(entry.starDirection ?? "") / 고도 \(String(format: "%.1f", entry.starAltitude))°"
             )
             
             dataCard(
                 icon: "arrow.left.and.right",
-                title: "별까지의 거리",
+                title: String(localized: "journal.detail.distance"),
                 value: String(format: "%.0f km", entry.distanceKm)
             )
         }
@@ -380,14 +380,14 @@ struct StarJournalDetailView: View {
     // MARK: - 메모 섹션
     private var memoSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("한 줄 감상")
+            Text(String(localized: "journal.detail.memo.title"))
                 .font(.Yunseul.caption)
                 .foregroundColor(Color.Yunseul.textTertiary)
                 .tracking(2)
             
             ZStack(alignment: .topLeading) {
                 if memo.isEmpty {
-                    Text("오늘의 별빛은 어땠나요?")
+                    Text(String(localized: "journal.detail.memo.placeholder"))
                         .font(.Yunseul.story)
                         .foregroundColor(Color.Yunseul.textTertiary)
                         .padding(16)
@@ -413,7 +413,7 @@ struct StarJournalDetailView: View {
                 saveMemo()
                 dismiss()
             } label: {
-                Text("저장")
+                Text(String(localized: "journal.detail.save"))
                     .font(.Yunseul.callout)
                     .foregroundColor(Color.Yunseul.starBlue)
                     .frame(maxWidth: .infinity)
@@ -427,7 +427,7 @@ struct StarJournalDetailView: View {
             Button {
                 showDeleteConfirm = true
             } label: {
-                Text("일기 삭제")
+                Text(String(localized: "journal.detail.delete"))
                     .font(.Yunseul.callout)
                     .foregroundColor(.red.opacity(0.7))
                     .frame(maxWidth: .infinity)

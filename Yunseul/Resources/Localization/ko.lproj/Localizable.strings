@@ -36,3 +36,34 @@
 "home.story.title" = "나의 별 이야기";
 "home.star.annotation" = "✦ 당신의 별";
 
+// MARK: - StarRelation
+"home.relation.title" = "별자리 관계도";
+
+// MARK: - StarCompass
+"compass.header" = "별과 함께 하늘 찍기";
+"compass.save.success" = "앨범에 저장됐어요";
+"compass.save.button" = "앨범 저장";
+"compass.save.saving" = "저장 중...";
+"compass.overwrite.title" = "오늘의 별빛이 이미 기록됐어요";
+"compass.overwrite.message" = "어떻게 할까요?";
+"compass.overwrite.imageonly" = "이미지만 저장";
+"compass.overwrite.diary" = "일기 덮어쓰기";
+"compass.overwrite.cancel" = "취소";
+"compass.watermark" = "✦ 윤슬";
+
+// MARK: - StarJournal
+"journal.title" = "별빛 일기";
+"journal.count" = "%d개의 기록";
+"journal.empty" = "별과 함께 하늘을 찍으면\n여기에 기록돼요";
+"journal.detail.star.place" = "별이 비추던 곳";
+"journal.detail.my.place" = "내가 있던 곳";
+"journal.detail.direction" = "별의 방향";
+"journal.detail.distance" = "별까지의 거리";
+"journal.detail.memo.title" = "한 줄 감상";
+"journal.detail.memo.placeholder" = "오늘의 별빛은 어땠나요?";
+"journal.detail.save" = "저장";
+"journal.detail.delete" = "일기 삭제";
+"journal.delete.title" = "이 일기를 삭제할까요?";
+"journal.delete.confirm" = "삭제";
+"journal.delete.cancel" = "취소";
+"journal.delete.message" = "삭제한 일기는 복구할 수 없어요";
