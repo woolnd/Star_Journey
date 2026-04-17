@@ -6,4 +6,7 @@
   
 */
 
-CFBundleDisplayName = "ユンスル";
+// MARK: - Splash
+"splash.title" = "ユンスル";
+"splash.tagline1" = "あなたの星は今この瞬間";
+"splash.tagline2" = "地球のどこを照らしているのでしょう？";

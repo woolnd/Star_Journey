@@ -36,7 +36,7 @@ struct SplashView: View {
                     .padding(.bottom, 28)
                 
                 // 앱 이름
-                Text("윤슬")
+                Text(String(localized: "splash.title"))
                     .font(.Yunseul.appTitle)
                     .foregroundColor(Color.Yunseul.textPrimary)
                     .tracking(12)
@@ -60,12 +60,12 @@ struct SplashView: View {
                 
                 // 태그라인
                 VStack(spacing: 12) {
-                    Text("당신의 별은 지금 이 순간")
+                    Text(String(localized: "splash.tagline1"))
                         .font(.Yunseul.briefingSmall)
                         .foregroundColor(Color.Yunseul.textSecondary)
                         .tracking(2)
                     
-                    Text("지구 어디를 비추고 있을까요?")
+                    Text(String(localized: "splash.tagline2"))
                         .font(.Yunseul.briefingSmall) 
                         .foregroundColor(Color.Yunseul.textSecondary)
                         .tracking(2)

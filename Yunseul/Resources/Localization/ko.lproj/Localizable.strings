@@ -5,3 +5,8 @@
   Created by wodnd on 4/10/26.
   
 */
+
+// MARK: - Splash
+"splash.title" = "윤슬";
+"splash.tagline1" = "당신의 별은 지금 이 순간";
+"splash.tagline2" = "지구 어디를 비추고 있을까요?";

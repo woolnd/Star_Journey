@@ -306,8 +306,8 @@
 		6DEBFE442F88B57300D258B8 /* ja.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				6DEBFED02F8E421700D258B8 /* InfoPlist.strings */,
 				6DEBFE4C2F88B5AF00D258B8 /* Localizable.strings */,
+				6DEBFED02F8E421700D258B8 /* InfoPlist.strings */,
 			);
 			path = ja.lproj;
 			sourceTree = "<group>";

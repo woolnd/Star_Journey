@@ -5,3 +5,8 @@
   Created by wodnd on 4/10/26.
   
 */
+
+// MARK: - Splash
+"splash.title" = "Yunseul";
+"splash.tagline1" = "Your star, at this very moment";
+"splash.tagline2" = "Where on Earth is it shining?";
