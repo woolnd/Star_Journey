@@ -298,7 +298,6 @@ struct TracesView: View {
                                            : Color.Yunseul.starBlue.opacity(0.7))
                                         : Color(Color.Yunseul.textTertiary).opacity(0.4)
                                     )
-                                    .fontWeight(isToday(date) ? .bold : .regular)
                                 
                                 if hasJournal {
                                     Text("✦")

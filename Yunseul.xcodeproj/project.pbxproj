@@ -60,8 +60,8 @@
 		6DEBFED12F8E421700D258B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFED02F8E421700D258B8 /* InfoPlist.strings */; };
 		6DEBFED32F8F0E6000D258B8 /* DiscordWebhookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFED22F8F0E6000D258B8 /* DiscordWebhookService.swift */; };
 		6DEBFED52F8F0F6400D258B8 /* GistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFED42F8F0F6400D258B8 /* GistService.swift */; };
-		6DEBFED72F8F13F900D258B8 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFED62F8F13F900D258B8 /* Secrets.swift */; };
 		6DEBFED92F8F154000D258B8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6DEBFED82F8F154000D258B8 /* .gitignore */; };
+		6DEBFEDD2F92900500D258B8 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEBFEDC2F92900500D258B8 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,8 +112,8 @@
 		6DEBFECF2F8E421700D258B8 /* InfoPlist 2.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "InfoPlist 2.strings"; path = "../en.lproj/InfoPlist 2.strings"; sourceTree = "<group>"; };
 		6DEBFED22F8F0E6000D258B8 /* DiscordWebhookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordWebhookService.swift; sourceTree = "<group>"; };
 		6DEBFED42F8F0F6400D258B8 /* GistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistService.swift; sourceTree = "<group>"; };
-		6DEBFED62F8F13F900D258B8 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		6DEBFED82F8F154000D258B8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		6DEBFEDC2F92900500D258B8 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +138,7 @@
 		6D057F562F88814100D7560D = {
 			isa = PBXGroup;
 			children = (
-				6DEBFED62F8F13F900D258B8 /* Secrets.swift */,
+				6DEBFEDC2F92900500D258B8 /* Secrets.swift */,
 				6DEBFED82F8F154000D258B8 /* .gitignore */,
 				6DEBFE1C2F88AEDC00D258B8 /* Yunseul */,
 				6D057F602F88814100D7560D /* Products */,
@@ -471,7 +471,6 @@
 				6DEBFE322F88AFEE00D258B8 /* OnboardingFeature.swift in Sources */,
 				6DEBFEA42F8AAA0100D258B8 /* StarCompassView.swift in Sources */,
 				6DEBFE992F8A827000D258B8 /* LocationService.swift in Sources */,
-				6DEBFED72F8F13F900D258B8 /* Secrets.swift in Sources */,
 				6DEBFE8F2F88CEA900D258B8 /* Yunseul.xcdatamodeld in Sources */,
 				6DEBFE9B2F8A89AF00D258B8 /* MotionService.swift in Sources */,
 				6DEBFEBD2F8C6A6700D258B8 /* StarTrailService.swift in Sources */,
@@ -498,6 +497,7 @@
 				6DEBFE842F88C44800D258B8 /* SplashFeature.swift in Sources */,
 				6DEBFEAC2F8AE3D900D258B8 /* NotificationService.swift in Sources */,
 				6DEBFE862F88C45100D258B8 /* SplashView.swift in Sources */,
+				6DEBFEDD2F92900500D258B8 /* Secrets.swift in Sources */,
 				6DEBFED32F8F0E6000D258B8 /* DiscordWebhookService.swift in Sources */,
 				6DEBFEC12F8CC4A200D258B8 /* StarTrailGlobeView.swift in Sources */,
 			);
