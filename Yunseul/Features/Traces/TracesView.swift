@@ -263,7 +263,7 @@ struct TracesView: View {
             }
             
             HStack(spacing: 0) {
-                ForEach(["일", "월", "화", "수", "목", "금", "토"], id: \.self) { day in
+                ForEach(Calendar.current.shortWeekdaySymbols, id: \.self) { day in
                     Text(day)
                         .font(.Yunseul.captionLight)
                         .foregroundColor(Color.Yunseul.textTertiary)

@@ -223,7 +223,7 @@ struct HomeView: View {
             // 별자리
             dataCell(
                 label: String(localized: "home.data.guardian"),
-                value: viewStore.constellation.rawValue,
+                value: viewStore.constellation.localizedName,
                 subLabel: viewStore.constellation.latinName
             )
         }

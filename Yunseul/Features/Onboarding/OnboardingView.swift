@@ -258,7 +258,7 @@ struct ConstellationResultView: View {
             .padding(.bottom, 16)
             
             VStack(spacing: 8) {
-                Text(viewStore.constellation.rawValue)
+                Text(viewStore.constellation.localizedName)
                     .font(.Yunseul.constellationName)
                     .foregroundColor(Color.Yunseul.textPrimary)
                     .tracking(4)

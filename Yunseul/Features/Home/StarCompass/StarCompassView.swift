@@ -166,7 +166,7 @@ struct StarCompassView: View {
             Spacer().frame(height: 24)
             
             VStack(spacing: 6) {
-                Text(viewStore.constellation.rawValue)
+                Text(viewStore.constellation.localizedName)
                     .font(.Yunseul.constellationName)
                     .foregroundColor(.white)
                     .tracking(6)
@@ -436,7 +436,7 @@ struct StarCompassView: View {
             
             CoreDataService.shared.saveJournalEntry(
                 date: Date(),
-                constellation: viewStore.constellation.rawValue,
+                constellation: viewStore.constellation.localizedName,
                 starLatitude: viewStore.subStellarLatitude,
                 starLongitude: viewStore.subStellarLongitude,
                 starRegionName: viewStore.cachedRegionName,
