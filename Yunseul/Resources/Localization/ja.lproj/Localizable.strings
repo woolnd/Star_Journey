@@ -24,3 +24,14 @@
 "onboarding.birthdate.next" = "星座を探す";
 
 "onboarding.result.begin" = "星の光を辿る";
+
+// MARK: - Home
+"home.loading" = "星を探しています...";
+"home.briefing.label" = "今日の旅";
+"home.map.subtitle" = "星下点リアルタイム位置";
+"home.data.altitude" = "高度";
+"home.data.azimuth" = "方位角";
+"home.data.guardian" = "守護星";
+"home.button.camera" = "星と一緒に空を撮る";
+"home.story.title" = "私の星の物語";
+"home.star.annotation" = "✦ あなたの星";

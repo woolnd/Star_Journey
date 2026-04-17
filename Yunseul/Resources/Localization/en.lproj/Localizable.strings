@@ -24,3 +24,14 @@
 "onboarding.birthdate.next" = "Find my star";
 
 "onboarding.result.begin" = "Follow the starlight";
+
+// MARK: - Home
+"home.loading" = "Finding your star...";
+"home.briefing.label" = "Today's Journey";
+"home.map.subtitle" = "Sub-stellar point live";
+"home.data.altitude" = "Altitude";
+"home.data.azimuth" = "Azimuth";
+"home.data.guardian" = "Guardian";
+"home.button.camera" = "Shoot the sky with your star";
+"home.story.title" = "My Star Story";
+"home.star.annotation" = "✦ Your Star";

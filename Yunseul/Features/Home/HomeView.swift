@@ -69,7 +69,7 @@ struct HomeView: View {
                 .font(.system(size: 32))
                 .foregroundColor(Color.Yunseul.starBlue)
             
-            Text("별을 찾고 있어요...")
+            Text(String(localized: "home.loading"))
                 .font(.Yunseul.footnoteItalic)
                 .foregroundColor(Color.Yunseul.textSecondary)
         }
@@ -120,7 +120,7 @@ struct HomeView: View {
     // MARK: - 브리핑 섹션
     private func briefingSection(viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("오늘의 여정")
+            Text(String(localized: "home.briefing.label"))
                 .font(.Yunseul.caption)
                 .foregroundColor(Color.Yunseul.textTertiary)
                 .tracking(2)
@@ -144,7 +144,7 @@ struct HomeView: View {
                         .foregroundColor(Color.Yunseul.textTertiary)
                         .tracking(2)
                     
-                    Text("성하점 실시간 위치")
+                    Text(String(localized: "home.map.subtitle"))
                         .font(.Yunseul.footnote)
                         .foregroundColor(Color.Yunseul.textSecondary)
                 }
@@ -208,21 +208,21 @@ struct HomeView: View {
         HStack(spacing: 8) {
             // 고도
             dataCell(
-                label: "고도",
+                label: String(localized: "home.data.altitude"),
                 value: String(format: "%.1f°", viewStore.starAltitude),
                 subLabel: "altitude"
             )
             
             // 방위각
             dataCell(
-                label: "방위각",
+                label: String(localized: "home.data.azimuth"),
                 value: String(format: "%.1f°", viewStore.starAzimuth),
                 subLabel: "azimuth"
             )
             
             // 별자리
             dataCell(
-                label: "수호성",
+                label: String(localized: "home.data.guardian"),
                 value: viewStore.constellation.rawValue,
                 subLabel: viewStore.constellation.latinName
             )
@@ -268,7 +268,7 @@ struct HomeView: View {
                 HStack {
                     Image(systemName: "camera.fill")
                         .font(.system(size: 14))
-                    Text("별과 함께 하늘 찍기")
+                    Text(String(localized: "home.button.camera"))
                         .font(.Yunseul.callout)
                         .tracking(2)
                 }
@@ -289,7 +289,7 @@ struct HomeView: View {
             
             // 섹션 헤더
             HStack {
-                Text("나의 별 이야기")
+                Text(String(localized: "home.story.title"))
                     .font(.Yunseul.caption)
                     .foregroundColor(Color.Yunseul.textTertiary)
                     .tracking(2)
@@ -408,7 +408,7 @@ struct StarMapView: UIViewRepresentable {
             latitude: starLatitude,
             longitude: starLongitude
         )
-        starAnnotation.title = "✦ 당신의 별"
+        starAnnotation.title = String(localized: "home.star.annotation")
         mapView.addAnnotation(starAnnotation)
         
         let currentCenter = mapView.region.center

@@ -24,3 +24,15 @@
 "onboarding.birthdate.next" = "내 별자리 찾기";
 
 "onboarding.result.begin" = "별빛을 따라가기";
+
+// MARK: - Home
+"home.loading" = "별을 찾고 있어요...";
+"home.briefing.label" = "오늘의 여정";
+"home.map.subtitle" = "성하점 실시간 위치";
+"home.data.altitude" = "고도";
+"home.data.azimuth" = "방위각";
+"home.data.guardian" = "수호성";
+"home.button.camera" = "별과 함께 하늘 찍기";
+"home.story.title" = "나의 별 이야기";
+"home.star.annotation" = "✦ 당신의 별";
+
